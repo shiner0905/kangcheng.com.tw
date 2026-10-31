@@ -400,9 +400,9 @@ footer.site .mono{font-size:.74rem}
 @media (prefers-reduced-motion:reduce){.biz li,.tags li,.biz li::before{transition:none}.biz li:hover,.tags li:hover{transform:none}}
 </style>
 </head>
-<body>
+<body id="top">
 
-<header class="site" id="top">
+<header class="site">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="康晟精密有限公司 首頁">
       <img src="assets/img/logo.png" alt="KC 康晟精密">
@@ -683,6 +683,11 @@ footer.site .mono{font-size:.74rem}
 <script>
 (function(){
   var h=document.querySelector('header.site'),b=h.querySelector('.menu-btn');
+  document.querySelectorAll('a[href="#top"]').forEach(function(a){a.addEventListener('click',function(e){
+    e.preventDefault();h.classList.remove('open');b.setAttribute('aria-expanded',false);
+    window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    if(location.hash)history.replaceState(null,'',location.pathname+location.search);
+  })});
   (function(){
     var links=[].slice.call(h.querySelectorAll('nav.main a[href^="#"]')),bar=h.querySelector('.read-bar');
     var map={business:'about'};
