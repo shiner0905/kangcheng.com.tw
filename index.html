@@ -38,11 +38,26 @@ header.site .wrap{display:flex;align-items:center;justify-content:space-between;
 .brand img{width:38px;height:38px;border-radius:6px}
 .brand b{font-weight:700;font-size:1.05rem;letter-spacing:.06em;display:block;line-height:1.2}
 .brand small{display:block;font-family:var(--mono);font-size:.68rem;color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
-nav.main{display:flex;gap:4px;align-items:center}
-nav.main a{text-decoration:none;font-size:.92rem;padding:8px 12px;border-radius:var(--r);color:var(--ink-2);transition:background .15s,color .15s}
-nav.main a:hover{background:var(--line-2);color:var(--ink)}
-nav.main a.cta{background:var(--ink);color:#fff;margin-left:8px}
-nav.main a.cta:hover{background:var(--accent)}
+nav.main{display:flex;gap:2px;align-items:center}
+nav.main a{position:relative;display:inline-flex;align-items:baseline;gap:7px;text-decoration:none;font-size:.92rem;font-weight:500;letter-spacing:.04em;
+  padding:10px 13px;color:var(--ink-2);transition:color .2s}
+nav.main a .nn{font-family:var(--mono);font-size:.64rem;font-weight:400;letter-spacing:.04em;color:#9aa6ad;transition:color .2s}
+nav.main a:not(.cta)::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;border-radius:2px;background:var(--accent);
+  transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
+nav.main a:not(.cta):hover{color:var(--ink)}
+nav.main a:not(.cta):hover::after{transform:scaleX(1)}
+nav.main a:hover .nn{color:var(--accent)}
+nav.main a.active{color:var(--ink)}
+nav.main a.active .nn{color:var(--accent)}
+nav.main a.active::after{transform:scaleX(1)}
+nav.main .sep{width:1px;height:22px;background:var(--line);margin:0 10px 0 8px}
+nav.main a.cta{gap:9px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;box-shadow:0 6px 14px -8px rgba(15,26,34,.6);transition:background .2s,transform .2s,box-shadow .2s}
+nav.main a.cta .dot{width:7px;height:7px;border-radius:50%;background:#3fd0dc;box-shadow:0 0 0 3px rgba(63,208,220,.22);align-self:center}
+nav.main a.cta .arr{font-family:var(--mono);transition:transform .2s}
+nav.main a.cta:hover{background:var(--accent);transform:translateY(-1px);box-shadow:0 10px 18px -10px rgba(10,143,158,.8)}
+nav.main a.cta:hover .arr{transform:translateX(3px)}
+nav.main a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.read-bar{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:linear-gradient(90deg,var(--accent),#5fc3cc);transform:scaleX(var(--p,0));transform-origin:left;pointer-events:none}
 .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:var(--r);width:42px;height:42px;cursor:pointer;align-items:center;justify-content:center}
 .menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:18px;height:2px;background:var(--ink);position:relative;content:"";transition:.2s}
 .menu-btn span::before{position:absolute;top:-6px}.menu-btn span::after{position:absolute;top:6px}
@@ -283,8 +298,13 @@ footer.site .mono{font-size:.74rem}
   .menu-btn{display:inline-flex}
   nav.main{position:fixed;top:68px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--line);gap:2px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:.2s}
   .open nav.main{transform:none;opacity:1;pointer-events:auto}
-  nav.main a{padding:12px 10px;font-size:1rem}
-  nav.main a.cta{margin:8px 0 0;text-align:center}
+  nav.main a{padding:14px 10px;font-size:1rem;border-bottom:1px solid var(--line-2)}
+  nav.main a .nn{font-size:.72rem;min-width:22px}
+  nav.main a:not(.cta)::after{left:0;right:auto;top:12px;bottom:12px;width:2px;height:auto;transform:scaleY(0);transform-origin:top}
+  nav.main a:not(.cta):hover::after,nav.main a.active::after{transform:scaleY(1)}
+  nav.main a:not(.cta){padding-left:14px}
+  nav.main .sep{display:none}
+  nav.main a.cta{margin:12px 0 0;justify-content:center;border-bottom:0;padding:13px 16px}
 }
 @media (max-width:600px){
   .hero::before{opacity:.34;background-size:88vw 88vw,54vw 54vw,54vw 54vw;background-position:118% 36%,-35% -8%,128% 118%}
@@ -370,6 +390,7 @@ footer.site .mono{font-size:.74rem}
 @media (max-width:370px){#process .flow li:nth-child(n){padding:17px 16px}#process .flow span{font-size:.88rem}}
 @media (prefers-reduced-motion:reduce){#process .flow li,#process .flow li:hover,#process .flow li:active{transition:none;transform:none;filter:none}}
 
+@media (prefers-reduced-motion:reduce){nav.main a::after,nav.main a.cta,nav.main a.cta .arr{transition:none}nav.main a.cta:hover,nav.main a.cta:hover .arr{transform:none}}
 @media (prefers-reduced-motion:reduce){.biz li,.tags li,.biz li::before{transition:none}.biz li:hover,.tags li:hover{transform:none}}
 </style>
 </head>
@@ -382,14 +403,16 @@ footer.site .mono{font-size:.74rem}
       <span><b>康晟精密有限公司</b><small>Kang Cheng Precision Co., Ltd.</small></span>
     </a>
     <button class="menu-btn" aria-label="開啟/關閉選單" aria-expanded="false" aria-controls="nav"><span></span></button>
-    <nav class="main" id="nav">
-      <a href="#about">公司簡介</a>
-      <a href="#services">營業項目</a>
-      <a href="#process">設計流程</a>
-      <a href="#quality">品質管理</a>
-      <a href="#equipment">機器設備</a>
-      <a href="#contact" class="cta">聯絡方式</a>
+    <nav class="main" id="nav" aria-label="主選單">
+      <a href="#about"><span class="nn" aria-hidden="true">01</span>公司簡介</a>
+      <a href="#services"><span class="nn" aria-hidden="true">03</span>營業項目</a>
+      <a href="#process"><span class="nn" aria-hidden="true">04</span>設計流程</a>
+      <a href="#quality"><span class="nn" aria-hidden="true">05</span>品質管理</a>
+      <a href="#equipment"><span class="nn" aria-hidden="true">06</span>機器設備</a>
+      <span class="sep" aria-hidden="true"></span>
+      <a href="#contact" class="cta"><span class="dot" aria-hidden="true"></span>聯絡方式<span class="arr" aria-hidden="true">→</span></a>
     </nav>
+    <span class="read-bar" aria-hidden="true"></span>
   </div>
 </header>
 
@@ -654,6 +677,23 @@ footer.site .mono{font-size:.74rem}
 <script>
 (function(){
   var h=document.querySelector('header.site'),b=h.querySelector('.menu-btn');
+  (function(){
+    var links=[].slice.call(h.querySelectorAll('nav.main a[href^="#"]')),bar=h.querySelector('.read-bar');
+    var map={business:'about'};
+    var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+    document.querySelectorAll('section[id]').forEach(function(s){if(secs.indexOf(s)<0)secs.push(s)});
+    function upd(){
+      var y=window.scrollY,H=document.documentElement.scrollHeight-innerHeight;
+      if(bar)bar.style.setProperty('--p',H>0?Math.min(1,y/H):0);
+      var cur=null,best=-Infinity,mark=innerHeight*0.35;
+      secs.forEach(function(s){var top=s.getBoundingClientRect().top;if(top<=mark&&top>best){best=top;cur=s.id}});
+      if(H>0&&y>=H-2)cur='contact';
+      cur=map[cur]||cur;
+      links.forEach(function(a){var on=a.getAttribute('href')==='#'+cur;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+    }
+    var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(function(){upd();tk=false})}},{passive:true});
+    window.addEventListener('resize',upd);upd();
+  })();
   b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o)});
   h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded',false)})});
   var els=document.querySelectorAll('.reveal');
