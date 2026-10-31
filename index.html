@@ -41,6 +41,9 @@ header.site .wrap{display:flex;align-items:center;justify-content:space-between;
 nav.main{display:flex;gap:2px;align-items:center}
 nav.main a{position:relative;display:inline-flex;align-items:baseline;gap:7px;text-decoration:none;font-size:.92rem;font-weight:500;letter-spacing:.04em;
   padding:10px 13px;color:var(--ink-2);transition:color .2s}
+nav.main a .ni{width:17px;height:17px;flex:none;align-self:center;color:#93a1a8;transition:color .2s,transform .28s cubic-bezier(.2,.7,.3,1)}
+nav.main a:hover .ni,nav.main a.active .ni{color:var(--accent)}
+nav.main a:hover .ni{transform:translateY(-1px) scale(1.08)}
 nav.main a .nn{font-family:var(--mono);font-size:.64rem;font-weight:400;letter-spacing:.04em;color:#9aa6ad;transition:color .2s}
 nav.main a:not(.cta)::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;border-radius:2px;background:var(--accent);
   transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
@@ -300,6 +303,8 @@ footer.site .mono{font-size:.74rem}
   .open nav.main{transform:none;opacity:1;pointer-events:auto}
   nav.main a{padding:14px 10px;font-size:1rem;border-bottom:1px solid var(--line-2)}
   nav.main a .nn{font-size:.72rem;min-width:22px}
+  nav.main a{align-items:center;gap:12px}
+  nav.main a .ni{width:20px;height:20px}
   nav.main a:not(.cta)::after{left:0;right:auto;top:12px;bottom:12px;width:2px;height:auto;transform:scaleY(0);transform-origin:top}
   nav.main a:not(.cta):hover::after,nav.main a.active::after{transform:scaleY(1)}
   nav.main a:not(.cta){padding-left:16px}
@@ -390,6 +395,7 @@ footer.site .mono{font-size:.74rem}
 @media (max-width:370px){#process .flow li:nth-child(n){padding:17px 16px}#process .flow span{font-size:.88rem}}
 @media (prefers-reduced-motion:reduce){#process .flow li,#process .flow li:hover,#process .flow li:active{transition:none;transform:none;filter:none}}
 
+@media (prefers-reduced-motion:reduce){nav.main a .ni{transition:color .2s}nav.main a:hover .ni{transform:none}}
 @media (prefers-reduced-motion:reduce){nav.main a::after,nav.main a.cta,nav.main a.cta .arr{transition:none}nav.main a.cta:hover,nav.main a.cta:hover .arr{transform:none}}
 @media (prefers-reduced-motion:reduce){.biz li,.tags li,.biz li::before{transition:none}.biz li:hover,.tags li:hover{transform:none}}
 </style>
@@ -404,11 +410,11 @@ footer.site .mono{font-size:.74rem}
     </a>
     <button class="menu-btn" aria-label="開啟/關閉選單" aria-expanded="false" aria-controls="nav"><span></span></button>
     <nav class="main" id="nav" aria-label="主選單">
-      <a href="#about">公司簡介</a>
-      <a href="#services">營業項目</a>
-      <a href="#process">設計流程</a>
-      <a href="#quality">品質管理</a>
-      <a href="#equipment">機器設備</a>
+      <a href="#about"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V9l5 3V9l5 3V5h4v16"/><path d="M8 17h1M12 17h1M16 9v1M16 13v1M16 17h1"/></svg>公司簡介</a>
+      <a href="#services"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>營業項目</a>
+      <a href="#process"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="6" height="6" rx="1.2"/><rect x="15" y="15" width="6" height="6" rx="1.2"/><path d="M9 6h4a3 3 0 0 1 3 3v6"/><path d="M13.5 12.5L16 15l2.5-2.5"/></svg>設計流程</a>
+      <a href="#quality"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8l7.5 3v5.6c0 4.6-3.2 8.3-7.5 9.8-4.3-1.5-7.5-5.2-7.5-9.8V5.8z"/><path d="M8.6 12.2l2.4 2.4 4.6-4.8"/></svg>品質管理</a>
+      <a href="#equipment"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><rect x="6" y="7" width="7" height="6" rx=".8"/><path d="M16 8h2M16 11h2M7 16v4M17 16v4M5 20h14"/></svg>機器設備</a>
       <span class="sep" aria-hidden="true"></span>
       <a href="#contact" class="cta"><span class="dot" aria-hidden="true"></span>聯絡方式<span class="arr" aria-hidden="true">→</span></a>
     </nav>
@@ -692,7 +698,9 @@ footer.site .mono{font-size:.74rem}
       links.forEach(function(a){var on=a.getAttribute('href')==='#'+cur;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
     }
     var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(function(){upd();tk=false})}},{passive:true});
-    window.addEventListener('resize',upd);upd();
+    window.addEventListener('resize',upd);window.addEventListener('load',upd);
+    if('ResizeObserver' in window)new ResizeObserver(function(){requestAnimationFrame(upd)}).observe(document.body);
+    upd();
   })();
   b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o)});
   h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded',false)})});
