@@ -1,451 +1,567 @@
 <!doctype html>
-<html lang=zh class="no-js">
+<html lang="zh-Hant-TW">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>康晟精密有限公司｜Kang Cheng Precision Co., Ltd.</title>
+<meta name="description" content="康晟精密有限公司，1990年成立於新北市樹林區，專業CNC線切割、鎢鋼成型研磨、專業成型研磨、3D雕刻加工、備料銑床加工、成型放電加工。">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta property="og:title" content="康晟精密有限公司 Kang Cheng Precision">
+<meta property="og:description" content="專業CNC線切割/鎢鋼成型研磨/專業成型研磨/3D雕刻加工/備料銑床加工/成型放電加工">
+<meta property="og:image" content="assets/img/storefront.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f1a22; --ink-2:#2c3a45; --mute:#66737d; --line:#d9dee2; --line-2:#e9ecee;
+  --paper:#f6f7f6; --white:#fff; --steel:#18303f;
+  --accent:#0a8f9e; --accent-2:#e2f3f4; --red:#c8323a;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --wrap:1180px; --r:4px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font-family:var(--sans);color:var(--ink);background-color:var(--paper);background-image:radial-gradient(ellipse at 8% 18%,rgba(10,143,158,.075),transparent 34%),radial-gradient(ellipse at 92% 42%,rgba(91,133,157,.07),transparent 31%),linear-gradient(145deg,#f8f9f7 0%,#f1f5f5 48%,#f7f8f6 100%);background-attachment:fixed;line-height:1.75;-webkit-font-smoothing:antialiased;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono);letter-spacing:.02em}
+.en{color:var(--mute);font-size:.94rem;line-height:1.7}
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* header */
+header.site{position:sticky;top:0;z-index:50;background:rgba(246,247,246,.92);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:38px;height:38px;border-radius:6px}
+.brand b{font-weight:700;font-size:1.05rem;letter-spacing:.06em;display:block;line-height:1.2}
+.brand small{display:block;font-family:var(--mono);font-size:.68rem;color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
+nav.main{display:flex;gap:4px;align-items:center}
+nav.main a{text-decoration:none;font-size:.92rem;padding:8px 12px;border-radius:var(--r);color:var(--ink-2);transition:background .15s,color .15s}
+nav.main a:hover{background:var(--line-2);color:var(--ink)}
+nav.main a.cta{background:var(--ink);color:#fff;margin-left:8px}
+nav.main a.cta:hover{background:var(--accent)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:var(--r);width:42px;height:42px;cursor:pointer;align-items:center;justify-content:center}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:18px;height:2px;background:var(--ink);position:relative;content:"";transition:.2s}
+.menu-btn span::before{position:absolute;top:-6px}.menu-btn span::after{position:absolute;top:6px}
+.open .menu-btn span{background:transparent}.open .menu-btn span::before{top:0;transform:rotate(45deg)}.open .menu-btn span::after{top:0;transform:rotate(-45deg)}
 
-<title>康晟精密有限公司 &#8211; 專業CNC線切割/鎢鋼成型研磨/專業成型研磨/3D雕刻加工/備料銑床加工/成型放電加工</title>
-<link rel='dns-prefetch' href='//fonts.googleapis.com' />
-<link rel='dns-prefetch' href='//s.w.org' />
-<link rel="alternate" type="application/rss+xml" title="訂閱《康晟精密有限公司》&raquo; 資訊提供" href="./feed/index.html" />
-<link rel="alternate" type="application/rss+xml" title="訂閱《康晟精密有限公司》&raquo; 留言的資訊提供" href="./comments/feed/index.html" />
-		<script type="text/javascript">
-			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.5.3"}};
-			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
-		</script>
-		<style type="text/css">
-img.wp-smiley,
-img.emoji {
-	display: inline !important;
-	border: none !important;
-	box-shadow: none !important;
-	height: 1em !important;
-	width: 1em !important;
-	margin: 0 .07em !important;
-	vertical-align: -0.1em !important;
-	background: none !important;
-	padding: 0 !important;
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  background-color:#f4f7f6;
+  background-image:radial-gradient(ellipse 48% 78% at 82% 48%,rgba(10,143,158,.15),transparent 72%),radial-gradient(ellipse 36% 60% at 8% 92%,rgba(196,132,65,.10),transparent 74%),radial-gradient(ellipse 50% 60% at 52% 0%,rgba(255,255,255,.88),transparent 76%),linear-gradient(132deg,#f8f9f7 0%,#eef4f4 52%,#f5f6f3 100%)}
+.hero::before{content:"";position:absolute;inset:-16% 0 -18%;z-index:0;pointer-events:none;opacity:.46;
+  background-image:url("assets/img/blue-globe.png"),url("assets/img/blue-globe.png"),url("assets/img/blue-globe.png");
+  background-repeat:no-repeat;background-size:min(68vw,860px),min(42vw,530px),min(42vw,530px);
+  background-position:76% 48%,-10% -16%,112% 116%}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:88px;padding-bottom:88px}
+.eyebrow{font-family:var(--mono);font-size:.78rem;color:var(--accent);letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin:0 0 20px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.hero h1{font-size:clamp(2.4rem,5.2vw,4rem);line-height:1.15;margin:0 0 6px;font-weight:900;letter-spacing:.04em}
+.hero .h1-en{font-family:var(--mono);font-size:clamp(.85rem,1.4vw,1rem);color:var(--mute);letter-spacing:.06em;margin:0 0 28px}
+.hero .tagline{font-size:1.06rem;color:var(--ink-2);max-width:34em;margin:0 0 36px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 36px;padding:0;list-style:none}
+.tags li{font-size:.86rem;padding:6px 12px;border:1px solid var(--line);background:var(--white);border-radius:999px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:var(--r);text-decoration:none;font-weight:500;font-size:.95rem;border:1px solid var(--ink);transition:.15s}
+.btn.primary{background:var(--ink);color:#fff}.btn.primary:hover{background:var(--accent);border-color:var(--accent)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.hero-fig{position:relative;background:var(--white);border:1px solid var(--line);padding:28px}
+.hero-fig img{width:100%;aspect-ratio:1/1;object-fit:contain}
+.dim{position:absolute;font-family:var(--mono);font-size:.72rem;color:var(--accent);background:var(--white);padding:2px 6px;border:1px solid var(--accent);white-space:nowrap}
+.dim.a{top:-12px;left:28px}.dim.b{bottom:-12px;right:28px}
+.corner{position:absolute;width:14px;height:14px;border-color:var(--ink)}
+.corner.tl{top:-1px;left:-1px;border-top:2px solid;border-left:2px solid}.corner.br{bottom:-1px;right:-1px;border-bottom:2px solid;border-right:2px solid}
+
+/* spec strip */
+.specs{background:var(--steel);color:#fff}
+.specs .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.spec{padding:30px 24px;border-left:1px solid rgba(255,255,255,.12)}
+.spec:last-child{border-right:1px solid rgba(255,255,255,.12)}
+.spec .v{font-family:var(--mono);font-size:clamp(1.4rem,2.6vw,2rem);font-weight:500;line-height:1.2}
+.spec .v small{font-size:.55em;opacity:.7;margin-left:4px}
+.spec .k{font-size:.86rem;opacity:.72;margin-top:6px}
+
+/* sections */
+section.block{padding:104px 0;border-bottom:1px solid var(--line);position:relative;overflow:hidden;isolation:isolate}
+section.block > .wrap{position:relative;z-index:1}
+/* paper sections: fine dot grid fading from top-right */
+section.block::before{content:"";position:absolute;inset:0;z-index:-1;
+  background-image:radial-gradient(circle,#c3cbd1 1px,transparent 1.3px);background-size:22px 22px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 80% at 100% 0%,#000 0%,transparent 70%);mask-image:radial-gradient(ellipse 70% 80% at 100% 0%,#000 0%,transparent 70%);opacity:.9}
+/* white sections: blueprint grid fading from bottom-left + soft tint */
+section.block.alt{background:linear-gradient(180deg,#fff 0%,#f1f6f7 100%)}
+section.block.alt::before{background-image:linear-gradient(#e3eaed 1px,transparent 1px),linear-gradient(90deg,#e3eaed 1px,transparent 1px);background-size:40px 40px;
+  -webkit-mask-image:radial-gradient(ellipse 65% 75% at 0% 100%,#000 0%,transparent 72%);mask-image:radial-gradient(ellipse 65% 75% at 0% 100%,#000 0%,transparent 72%)}
+/* big watermark section number */
+section.block::after{content:attr(data-no);position:absolute;z-index:-1;top:40px;right:-0.04em;font-family:var(--mono);font-weight:500;
+  font-size:clamp(9rem,22vw,20rem);line-height:1;color:transparent;-webkit-text-stroke:1px #d3dade;letter-spacing:-.04em;pointer-events:none}
+/* registration marks at section corners */
+.wrap.marks::before,.wrap.marks::after{content:"";position:absolute;width:18px;height:18px;background:
+  linear-gradient(var(--ink-2),var(--ink-2)) center/100% 1px no-repeat,linear-gradient(var(--ink-2),var(--ink-2)) center/1px 100% no-repeat;opacity:.35}
+.wrap.marks::before{top:-64px;left:24px}.wrap.marks::after{bottom:-64px;right:24px}
+
+/* dark section variant */
+section.block.dark{background:var(--steel);color:#fff;border-bottom-color:transparent}
+section.block.dark::before{background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:40px 40px;
+  -webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%)}
+section.block.dark::after{-webkit-text-stroke-color:rgba(255,255,255,.1)}
+.dark .sec-no{border-color:#fff;color:rgba(255,255,255,.6)}
+.dark .sec-head h2 span{color:rgba(255,255,255,.55)}
+.dark .wrap.marks::before,.dark .wrap.marks::after{background:linear-gradient(#fff,#fff) center/100% 1px no-repeat,linear-gradient(#fff,#fff) center/1px 100% no-repeat}
+.dark .flow{border-color:rgba(255,255,255,.14)}
+.dark .flow li,.alt.dark .flow li{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.14)}
+.dark .flow li::before{color:rgba(255,255,255,.5)}
+.dark .flow li::after{color:rgba(255,255,255,.25)}
+.dark .flow span{color:rgba(255,255,255,.6)}
+.dark .flow li.cust{background:rgba(10,143,158,.28)}
+.dark .flow li.cust::before{color:#7fd6de}
+.dark .flow li.final{background:#fff;color:var(--ink)}
+.dark .flow li.final span,.dark .flow li.final::before{color:var(--mute)}
+.dark .legend{color:rgba(255,255,255,.6)}
+.dark .legend i{border-color:rgba(255,255,255,.3)}
+
+/* airy blue globe motifs add texture through the long light sections */
+section.block:not(.dark):not(.contact)::before{opacity:.42;
+  background-image:url("assets/img/blue-globe.png"),radial-gradient(circle,#c3cbd1 1px,transparent 1.3px);
+  background-size:min(46vw,580px),22px 22px;background-position:calc(100% + 165px) 48%,0 0;
+  background-repeat:no-repeat,repeat}
+section.block.alt:not(.dark):not(.contact)::before{background-image:url("assets/img/blue-globe.png"),linear-gradient(#e3eaed 1px,transparent 1px),linear-gradient(90deg,#e3eaed 1px,transparent 1px);
+  background-size:min(46vw,580px),40px 40px,40px 40px;background-position:calc(100% + 165px) 48%,0 0,0 0;
+  background-repeat:no-repeat,repeat,repeat;-webkit-mask-image:radial-gradient(ellipse 90% 90% at 85% 45%,#000 0%,transparent 88%);mask-image:radial-gradient(ellipse 90% 90% at 85% 45%,#000 0%,transparent 88%)}
+
+/* contact keeps its own dark bg; tone the decorations */
+section.block.contact::before{background-image:radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1.3px)}
+section.block.contact::after{-webkit-text-stroke-color:rgba(255,255,255,.08)}
+.sec-head{display:grid;grid-template-columns:220px 1fr;gap:40px;margin-bottom:56px;align-items:end}
+.sec-no{font-family:var(--mono);font-size:.78rem;color:var(--mute);letter-spacing:.12em;border-top:2px solid var(--ink);padding-top:12px;align-self:start}
+.sec-head h2{font-size:clamp(1.7rem,3vw,2.3rem);margin:0;line-height:1.3;letter-spacing:.04em}
+.sec-head h2 span{display:block;font-family:var(--mono);font-size:.9rem;color:var(--mute);font-weight:400;letter-spacing:.06em;margin-top:6px}
+h3{font-size:1.25rem;margin:0 0 4px;letter-spacing:.03em;line-height:1.4}
+h3 .h-en{display:block;font-family:var(--mono);font-size:.78rem;color:var(--mute);font-weight:400;letter-spacing:.04em;margin-top:2px}
+p{margin:0 0 14px}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.about figure{margin:0;position:relative}
+.about figure img{border:1px solid var(--line);width:100%;aspect-ratio:4/3;object-fit:cover}
+.about figcaption{font-family:var(--mono);font-size:.74rem;color:var(--mute);margin-top:10px;display:flex;justify-content:space-between}
+.since{position:absolute;left:-1px;bottom:-1px;background:var(--ink);color:#fff;padding:14px 20px;font-family:var(--mono)}
+.since b{display:block;font-size:1.6rem;font-weight:500;line-height:1}
+.since small{font-size:.7rem;opacity:.7;letter-spacing:.1em}
+.lead{font-size:1.08rem;color:var(--ink-2)}
+.tenet{margin-top:40px;padding:28px;background:var(--white);border:1px solid var(--line);border-left:3px solid var(--accent)}
+.alt .tenet{background:var(--paper)}
+
+/* business items */
+.biz{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);list-style:none;padding:0;margin:0}
+.biz li{padding:28px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white);display:flex;gap:16px;align-items:flex-start;transition:background .15s}
+.biz li:hover{background:var(--accent-2)}
+.biz .n{font-family:var(--mono);font-size:.78rem;color:var(--accent);padding-top:4px}
+.biz b{display:block;font-size:1.08rem;font-weight:700}
+.biz span{display:block;color:var(--mute);font-size:.88rem;margin-top:2px}
+
+/* services */
+.svc-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:64px}
+.svc{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card{background:var(--white);border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;position:relative}
+.alt .card{background:var(--paper)}
+.card .tag{font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.1em;margin-bottom:14px}
+.card .kpi{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px}
+.card .kpi span{font-family:var(--mono);font-size:.8rem;padding:4px 10px;background:var(--accent-2);color:#06606a;border-radius:2px}
+.card img{margin-top:auto;padding-top:16px;width:100%;max-height:240px;object-fit:contain}
+
+/* process */
+.flow{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.flow li{counter-increment:s;padding:24px 20px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white);position:relative;min-height:128px}
+.alt .flow li{background:var(--paper)}
+.flow li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:.74rem;color:var(--mute);display:block;margin-bottom:10px}
+.flow li::after{content:"→";position:absolute;right:16px;top:20px;font-family:var(--mono);color:var(--line)}
+.flow li:last-child::after{content:""}
+.flow b{display:block;font-size:1.04rem}
+.flow span{display:block;color:var(--mute);font-size:.84rem;line-height:1.5;margin-top:4px}
+.flow li.cust{background:var(--accent-2)}
+.flow li.cust::before{color:var(--accent)}
+.flow li.final{background:var(--ink);color:#fff}
+.flow li.final span,.flow li.final::before{color:rgba(255,255,255,.65)}
+.legend{display:flex;gap:20px;margin-top:16px;font-size:.82rem;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px;border:1px solid var(--line)}
+.design-text{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px}
+
+/* quality */
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--ink);margin-bottom:56px}
+.values div{padding:28px 22px;border-right:1px solid var(--ink)}
+.values div:last-child{border-right:0}
+.values .vn{font-family:var(--mono);font-size:.72rem;color:var(--mute)}
+.values b{display:block;font-size:1.35rem;letter-spacing:.08em;margin-top:6px}
+.q-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.policy-en{font-family:var(--mono);font-size:.9rem;color:var(--ink-2);margin:-36px 0 56px}
+
+/* equipment */
+.eq-photos{display:grid;grid-template-columns:1fr 2fr 1fr 1fr;gap:12px;margin-bottom:48px}
+.eq-photos img{width:100%;height:200px;object-fit:cover;border:1px solid var(--line)}
+.eq-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
+table.eq{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line)}
+table.eq caption{text-align:left;font-weight:700;font-size:1.05rem;padding-bottom:12px}
+table.eq th,table.eq td{padding:13px 18px;border-bottom:1px solid var(--line-2);text-align:left;font-size:.95rem}
+table.eq th{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--mute);font-weight:400;background:var(--paper);border-bottom:1px solid var(--line)}
+table.eq td.q{text-align:right;white-space:nowrap;font-weight:500;color:var(--accent)}
+table.eq tr:last-child td{border-bottom:0}
+.exam{background:var(--white);border:1px solid var(--line);padding:24px 26px}
+.exam h3{font-size:1.05rem;margin-bottom:12px}
+.exam ul{margin:0;padding:0;list-style:none}
+.exam li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:.92rem;color:var(--ink-2)}
+.exam li:last-child{border-bottom:0}
+
+/* contact */
+.contact{background:var(--ink);color:#fff;border-bottom:0}
+.contact .sec-no{border-color:#fff;color:rgba(255,255,255,.6)}
+.contact .sec-head h2 span{color:rgba(255,255,255,.55)}
+.c-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:40px}
+.c-list{list-style:none;padding:0;margin:0;border-top:1px solid rgba(255,255,255,.15)}
+.c-list li{display:grid;grid-template-columns:72px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.15);align-items:baseline}
+.c-list .k{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;color:rgba(255,255,255,.55)}
+.c-list .v{font-size:1.1rem}
+.c-list a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);transition:border-color .15s}
+.c-list a:hover{border-color:var(--accent)}
+.c-list .v.big{font-family:var(--mono);font-size:1.5rem;letter-spacing:.02em}
+.map{border:1px solid rgba(255,255,255,.15);min-height:380px;background:#1b2832}
+.map iframe{width:100%;height:100%;min-height:380px;border:0;display:block;filter:grayscale(.35)}
+
+footer.site{background:#0a1218;color:rgba(255,255,255,.55);font-size:.82rem}
+footer.site .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:26px;padding-bottom:26px;flex-wrap:wrap}
+footer.site .mono{font-size:.74rem}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* responsive */
+@media (max-width:980px){
+  .hero .wrap,.about,.svc-intro,.q-grid,.design-text,.eq-wrap,.c-grid{grid-template-columns:1fr;gap:36px}
+  .hero .wrap{padding-top:56px;padding-bottom:64px}
+  .sec-head{grid-template-columns:1fr;gap:16px}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .biz{grid-template-columns:repeat(2,1fr)}
+  .values{grid-template-columns:repeat(2,1fr)}
+  .values div:nth-child(2){border-right:0}
+  .values div:nth-child(-n+2){border-bottom:1px solid var(--ink)}
+  .specs .wrap{grid-template-columns:repeat(2,1fr)}
+  .spec{border-bottom:1px solid rgba(255,255,255,.12)}
+  .menu-btn{display:inline-flex}
+  nav.main{position:fixed;top:68px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--line);gap:2px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:.2s}
+  .open nav.main{transform:none;opacity:1;pointer-events:auto}
+  nav.main a{padding:12px 10px;font-size:1rem}
+  nav.main a.cta{margin:8px 0 0;text-align:center}
+}
+@media (max-width:600px){
+  .hero::before{opacity:.34;background-size:88vw 88vw,54vw 54vw,54vw 54vw;background-position:118% 36%,-35% -8%,128% 118%}
+  section.block:not(.dark):not(.contact)::before{opacity:.64;background-size:88vw 88vw,22px 22px;background-position:78% 48%,0 0}
+  section.block.alt:not(.dark):not(.contact)::before{opacity:.64;background-size:88vw 88vw,40px 40px,40px 40px;background-position:78% 48%,0 0,0 0}
+  .wrap{padding:0 16px}
+  section.block{padding:48px 0}
+  .sec-head{margin-bottom:30px}
+  .biz li{padding:18px 16px;gap:12px;background:rgba(255,255,255,.78)}
+  .svc,.biz,.flow{grid-template-columns:1fr}
+  .flow li{min-height:0}
+  .flow li::after{content:"↓";right:18px}
+  .eq-photos{grid-template-columns:1fr 1fr}
+  .eq-photos img{height:140px}
+  .eq-photos img:nth-child(2){grid-column:span 2;order:-1}
+  .card{padding:24px}
+  .brand small{display:none}
+  table.eq th,table.eq td{padding:11px 12px}
 }
 </style>
-	<link rel='stylesheet' id='wp-block-library-css'  href='./wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
-<link rel='stylesheet' id='bootstrap-css'  href='./wp-content/themes/mynote/assets/css/bootstrap.min.css' type='text/css' media='all' />
-<link rel='stylesheet' id='fontawesome-css'  href='./wp-content/themes/mynote/assets/css/fontawesome-all.min.css' type='text/css' media='all' />
-<link rel='stylesheet' id='mynote-font-roboto-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A300%2C400&#038;ver=1.0' type='text/css' media='all' />
-<link rel='stylesheet' id='mynote-css'  href='./wp-content/themes/mynote/style.css' type='text/css' media='all' />
-<script type='text/javascript' src='./wp-includes/js/jquery/jquery.js' id='jquery-core-js'></script>
-<script type='text/javascript' src='./wp-content/themes/mynote/assets/js/bootstrap.bundle.min.js' id='bootstrap-js'></script>
-<link rel="https://api.w.org/" href="./wp-json/index.html" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="./xmlrpc.php?rsd" />
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="./wp-includes/wlwmanifest.xml" /> 
-<meta name="generator" content="WordPress 5.5.3" />
-<style id="mynote-customizer">
-#header-desc-text { color: ffffff !important; }
-body:not(.home) .header { background-color: rgba(0,75,152,0.73) !important; }
-.header .search-bar { display: none !important; }
-body.home .header .search-bar { display: none !important; }
-body.home .header { background-color: rgba(0,75,152,0.73) !important; }
-@media (max-width: 768px) {
-.footer-columns { text-align: center !important; }
-.footer-columns .footer-column-left { text-align: center !important; }
-}
-.scroll-area { display: block !important; }
-
-</style><style type="text/css" id="custom-background-css">
-body.custom-background { background-image: url("./wp-content/uploads/2020/11/科技感网格状发散地图地球.png"); background-position: center center; background-size: auto; background-repeat: repeat; background-attachment: scroll; }
-</style>
-	<link rel="icon" href="./wp-content/uploads/2020/10/cropped-icon-1-32x32.png" sizes="32x32" />
-<link rel="icon" href="./wp-content/uploads/2020/10/cropped-icon-1-192x192.png" sizes="192x192" />
-<link rel="apple-touch-icon" href="./wp-content/uploads/2020/10/cropped-icon-1-180x180.png" />
-<meta name="msapplication-TileImage" content="/wp-content/uploads/2020/10/cropped-icon-1-270x270.png" />
-
 </head>
-<body class="home custom-background wp-custom-logo has-site-icon has-site-logo">
-		<div class="wrapper">
-		<header class="header clear" role="banner">
-			<div class="container">
-				<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
-										<a class="navbar-brand" href="./index.html">
-						<img src="./wp-content/uploads/2020/10/cropped-icon.png" alt="標誌" class="logo-img">
-					</a>
-					
-												<div id="mynote-nav-bar" class="collapse navbar-collapse">
-		<ul id="menu-primary-menu" class="navbar-nav mr-auto">
-			<li class="nav-item"><a href="./index.html" class="nav-link">首頁</a></li>
-		</ul>
-	</div>
-						
-					<div class="search-bar">
-						
-<form id="search-form" class="search" method="get" action="" role="search" autocomplete="off">
-	<input type="text" name="s" class="search-input" placeholder="輸入關鍵字後按下 Enter 鍵進行搜尋">
-	<span class="search-icon" onclick="document.getElementById('search-form').submit();"><i class="fas fa-search"></i></span>
-</form>
+<body>
 
+<header class="site" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="康晟精密有限公司 首頁">
+      <img src="assets/img/logo.png" alt="KC 康晟精密">
+      <span><b>康晟精密有限公司</b><small>Kang Cheng Precision Co., Ltd.</small></span>
+    </a>
+    <button class="menu-btn" aria-label="開啟/關閉選單" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="main" id="nav">
+      <a href="#about">公司簡介</a>
+      <a href="#services">營業項目</a>
+      <a href="#process">設計流程</a>
+      <a href="#quality">品質管理</a>
+      <a href="#equipment">機器設備</a>
+      <a href="#contact" class="cta">聯絡方式</a>
+    </nav>
+  </div>
+</header>
 
-					</div>
-					
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynote-nav-bar" aria-controls="mynote-nav-bar" aria-expanded="false" aria-label="開啟/關閉導覽列">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-				</nav>
-			</div><!-- .container -->
-		</header>
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Precision Mold Parts · Since 1990</p>
+      <h1>康晟精密有限公司</h1>
+      <p class="h1-en">KANG CHENG PRECISION CO., LTD.</p>
+      <ul class="tags">
+        <li>專業CNC線切割</li><li>鎢鋼成型研磨</li><li>專業成型研磨</li><li>3D雕刻加工</li><li>備料銑床加工</li><li>成型放電加工</li>
+      </ul>
+      <div class="btns">
+        <a class="btn primary" href="#contact">聯絡我們 →</a>
+        <a class="btn ghost" href="#services">營業項目</a>
+      </div>
+    </div>
+    <div class="hero-fig">
+      <span class="corner tl"></span><span class="corner br"></span>
+      <span class="dim a">+0.001 m/m</span>
+      <img src="assets/img/wirecut.jpg" alt="CNC線切割機" width="1111" height="1152">
+      <span class="dim b">RA 0.3</span>
+    </div>
+  </div>
+</section>
 
-
-		
-
-<div class="data-schema">
-	<main role="main" class="main-header has-custom-header">
-		<div class="section-intro d-flex align-items-center" style="background-image: url(./wp-content/uploads/2020/10/未命名-2-2.png);">
-			<div class="container px-responsive">
-				<div class="d-md-flex align-items-center">
-					<div class="col-12 col-md-7 text-center text-md-left" style="min-height: 100%; overflow: hidden" >
-						<h1 class="mb-3">康晟精密有限公司</h1>
-						<p class="mb4 desc-text" id="header-desc-text">專業CNC線切割/鎢鋼成型研磨/專業成型研磨/3D雕刻加工/備料銑床加工/成型放電加工</p>
-					</div>
-					<div class="col-12 col-md-5">
-												<p class="p-5"><a href="./category/intro/index.html" class="x-label x-label-0">公司簡介</a><a href="./category/qc/index.html" class="x-label x-label-1">品質管理</a><a href="./category/eqp/index.html" class="x-label x-label-2">機器設備</a><a href="./category/item/index.html" class="x-label x-label-3">營業項目</a><a href="./category/contact/index.html" class="x-label x-label-4">聯絡方式</a></p>
-											</div>
-				</div>
-			</div>
-			<div class="scroll-area">
-				<a href="#main-container"><i class="fas fa-arrow-down"></i></a>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row row-layout-choice-home">
-				<section id="main-container" class="col-lg-12 col-md-12 col-sm-12">
-					
-	<div class="row my-4">
-
-		
-		
-		<div class="col-sm-4">
-			<article id="post-184" class="article-list">
-				<div class="card my-2">
-					
-					<div class="card-body">
-
-						<div class="card-text-fade-out">
-							<h5 class="card-title"><a href="./2020/10/31/intro/index.html" title="公司簡介 Company profile">公司簡介 Company profile</a></h5>
-							<p class="card-text">本公司主要從事生產精密五金模具，1990年成立於台灣樹林區。10多年來，本經營團隊一直秉持著「凝聚生產力量,團... &raquo; <a class="read-more-link" href="./2020/10/31/intro/index.html">閱讀全文</a></p>
-													</div>
-						
-											</div>
-									</div>
-			</article>
-		</div>
-
-		
-		
-		<div class="col-sm-4">
-			<article id="post-231" class="article-list">
-				<div class="card my-2">
-					
-					<div class="card-body">
-
-						<div class="card-text-fade-out">
-							<h5 class="card-title"><a href="./2020/10/31/contact/index.html" title="聯絡方式">聯絡方式</a></h5>
-							<p class="card-text">地址：新北市樹林區三俊街90巷56弄23號電話：02-2688-3747傳真：02-2688-1794信箱：c... &raquo; <a class="read-more-link" href="./2020/10/31/contact/index.html">閱讀全文</a></p>
-													</div>
-						
-											</div>
-									</div>
-			</article>
-		</div>
-
-		
-		
-		<div class="col-sm-4">
-			<article id="post-116" class="article-list">
-				<div class="card my-2">
-					
-					<div class="card-body">
-
-						<div class="card-text-fade-out">
-							<h5 class="card-title"><a href="./2020/10/30/business-items/index.html" title="營運範圍 Business items">營運範圍 Business items</a></h5>
-							<p class="card-text">鎢鋼模具製造 金屬零件製造 半導體零組件加工 精密線割加工 特殊零件製造 光學CNC加工 Tungsten(C... &raquo; <a class="read-more-link" href="./2020/10/30/business-items/index.html">閱讀全文</a></p>
-													</div>
-						
-											</div>
-									</div>
-			</article>
-		</div>
-
-		
-		
-		<div class="col-sm-4">
-			<article id="post-119" class="article-list">
-				<div class="card my-2">
-					
-					<div class="card-body">
-
-						<div class="card-text-fade-out">
-							<h5 class="card-title"><a href="./2020/10/30/tenet/index.html" title="公司宗旨 Tenet">公司宗旨 Tenet</a></h5>
-							<p class="card-text">我們的宗旨就是秉持誠摯的態度來接待每位客戶。用合理、公正的價格及優良的產品滿足於客戶。同時，在市場上我們勇於挑... &raquo; <a class="read-more-link" href="./2020/10/30/tenet/index.html">閱讀全文</a></p>
-													</div>
-						
-											</div>
-									</div>
-			</article>
-		</div>
-
-		
-		
-		<div class="col-sm-4">
-			<article id="post-121" class="article-list">
-				<div class="card my-2">
-					
-					<div class="card-body">
-
-						<div class="card-text-fade-out">
-							<h5 class="card-title"><a href="./2020/10/29/quality-policy/index.html" title="品質政策 Quality policy">品質政策 Quality policy</a></h5>
-							<p class="card-text">Customer uppermost, quality, first, perfect pursuit and... &raquo; <a class="read-more-link" href="./2020/10/29/quality-policy/index.html">閱讀全文</a></p>
-													</div>
-						
-											</div>
-									</div>
-			</article>
-		</div>
-
-		
-		
-		<div class="col-sm-4">
-			<article id="post-131" class="article-list">
-				<div class="card my-2">
-					
-					<div class="card-body">
-
-						<div class="card-text-fade-out">
-							<h5 class="card-title"><a href="./2020/10/29/scope-of-our-services/index.html" title="服務內容 Scope of Our Services">服務內容 Scope of Our Services</a></h5>
-							<p class="card-text">我們致力耕耘精密模具，有幸在市場上取得了客戶的信賴，由於擁有廣大客戶支持，得以讓我們不斷在硬體與軟體上追求創新... &raquo; <a class="read-more-link" href="./2020/10/29/scope-of-our-services/index.html">閱讀全文</a></p>
-													</div>
-						
-											</div>
-									</div>
-			</article>
-		</div>
-
-		
-		
-		<div class="col-sm-4">
-			<article id="post-133" class="article-list">
-				<div class="card my-2">
-					
-					<div class="card-body">
-
-						<div class="card-text-fade-out">
-							<h5 class="card-title"><a href="./2020/10/29/designmold-openmold-test-run/index.html" title="設計｜開模｜試模 Design|Mold open|Mold test run">設計｜開模｜試模 Design|Mold open|Mold test run</a></h5>
-							<p class="card-text">設計工程人員，從開發、設計、組模、試模到成品完成交客戶。 Design engineers and tis o... &raquo; <a class="read-more-link" href="./2020/10/29/designmold-openmold-test-run/index.html">閱讀全文</a></p>
-													</div>
-						
-											</div>
-									</div>
-			</article>
-		</div>
-
-		
-		
-		<div class="col-sm-4">
-			<article id="post-144" class="article-list">
-				<div class="card my-2">
-					
-					<div class="card-body">
-
-						<div class="card-text-fade-out">
-							<h5 class="card-title"><a href="./2020/10/29/precision-wire-cut/index.html" title="精密線切割加工 Precision Wire Cut">精密線切割加工 Precision Wire Cut</a></h5>
-							<p class="card-text">本廠特別採用最先進的浸水浸油式線割機,公差精密度達+0.00 1m/m,內R角處 理可達0.025m/m,超鏡... &raquo; <a class="read-more-link" href="./2020/10/29/precision-wire-cut/index.html">閱讀全文</a></p>
-													</div>
-						
-											</div>
-									</div>
-			</article>
-		</div>
-
-		
-		
-		<div class="col-sm-4">
-			<article id="post-146" class="article-list">
-				<div class="card my-2">
-					
-					<div class="card-body">
-
-						<div class="card-text-fade-out">
-							<h5 class="card-title"><a href="./2020/10/29/cnc-electrical-discharge/index.html" title="CNC 放電加工 CNC Electrical Discharge">CNC 放電加工 CNC Electrical Discharge</a></h5>
-							<p class="card-text">為了滿足公司的發展與客戶的需要,進一步提高產品的品質與生產效率,本公司特別 增購了高效率放電加工機。 In o... &raquo; <a class="read-more-link" href="./2020/10/29/cnc-electrical-discharge/index.html">閱讀全文</a></p>
-													</div>
-						
-											</div>
-									</div>
-			</article>
-		</div>
-
-		
-		
-		<div class="col-sm-4">
-			<article id="post-148" class="article-list">
-				<div class="card my-2">
-					
-					<div class="card-body">
-
-						<div class="card-text-fade-out">
-							<h5 class="card-title"><a href="./2020/10/29/high-precision-surface-grinder/index.html" title="高精度平面磨床 High Precision Surface Grinder">高精度平面磨床 High Precision Surface Grinder</a></h5>
-							<p class="card-text">本廠擁有平面磨床,其效率極佳、精度高,公差可達±0.002m/m。我們對技術的用 心態度,在同業中取得了舉足輕... &raquo; <a class="read-more-link" href="./2020/10/29/high-precision-surface-grinder/index.html">閱讀全文</a></p>
-													</div>
-						
-											</div>
-									</div>
-			</article>
-		</div>
-
-		
-		
-		<div class="col-sm-4">
-			<article id="post-150" class="article-list">
-				<div class="card my-2">
-					
-					<div class="card-body">
-
-						<div class="card-text-fade-out">
-							<h5 class="card-title"><a href="./2020/10/29/quality-control/index.html" title="品質管理 Quality Control">品質管理 Quality Control</a></h5>
-							<p class="card-text">我們以精益求精的態度,嚴格要求對產品品質的管制,不斷追蹤、檢討與改善,滿足 不同客戶之需求。 因為我們相信:唯... &raquo; <a class="read-more-link" href="./2020/10/29/quality-control/index.html">閱讀全文</a></p>
-													</div>
-						
-											</div>
-									</div>
-			</article>
-		</div>
-
-		
-		
-		<div class="col-sm-4">
-			<article id="post-155" class="article-list">
-				<div class="card my-2">
-					
-					<div class="card-body">
-
-						<div class="card-text-fade-out">
-							<h5 class="card-title"><a href="./2020/10/27/machine/index.html" title="機器設備">機器設備</a></h5>
-							<p class="card-text">CNC線切割機（西部電機M75A）一台 CNC線切割機（西部電機M50B）三台 成形放電機(群基CJ-341)... &raquo; <a class="read-more-link" href="./2020/10/27/machine/index.html">閱讀全文</a></p>
-													</div>
-						
-											</div>
-									</div>
-			</article>
-		</div>
-
-		
-	</div>
-
-					
-<div class="pagination-container">
-	</div>
-				</section>
-
-							</div>
-		</div>
-	</main>
-
-	<br class="clearfix" />
-
-	
-	<br class="clearfix" />
+<div class="specs">
+  <div class="wrap">
+    <div class="spec"><div class="v">+0.001<small>m/m</small></div><div class="k">精密線切割 公差精密度</div></div>
+    <div class="spec"><div class="v">0.025<small>m/m</small></div><div class="k">線割 內R角處理</div></div>
+    <div class="spec"><div class="v">RA 0.3</div><div class="k">超鏡面處理 表面粗度</div></div>
+    <div class="spec"><div class="v">±0.002<small>m/m</small></div><div class="k">平面磨床 公差</div></div>
+  </div>
 </div>
-		<footer class="footer" role="contentinfo">
-						<section class="footer-sidebar">
-				<div class="container px-responsive">
-					<div class="row my-4">
-						<section id="categories-2" class="widget widget_categories col-lg col-md-4 col-sm-12"><h2 class="widget-title">分類</h2>
-			<ul>
-					<li class="cat-item cat-item-2"><a href="./category/intro/index.html">公司簡介</a>
-</li>
-	<li class="cat-item cat-item-3"><a href="./category/qc/index.html">品質管理</a>
-</li>
-	<li class="cat-item cat-item-4"><a href="./category/eqp/index.html">機器設備</a>
-</li>
-	<li class="cat-item cat-item-5"><a href="./category/item/index.html">營業項目</a>
-</li>
-	<li class="cat-item cat-item-6"><a href="./category/contact/index.html">聯絡方式</a>
-</li>
-			</ul>
 
-			</section>					</div>
-				</div>
-			</section>
-						<div class="container footer-columns">
-				<div class="footer-column-left">
-					<div>著作權 &copy; <span class="cy">2020</span><script>document.currentScript.previousElementSibling.textContent=new Date().getFullYear()</script> <strong><a href="./index.html">康晟精密有限公司</a></strong>. 保留一切權利。</div>
-					<div></div>
-				</div>
-				<div class="footer-column-right">
-									</div>
-			</div>
-		</footer>
-	</div><!-- .wrapper -->
-		<script>
+<!-- 01 公司簡介 -->
+<section class="block" id="about" data-no="01">
+  <div class="wrap marks">
+    <div class="sec-head reveal">
+      <div class="sec-no">01 / ABOUT</div>
+      <h2>公司簡介<span>Company profile</span></h2>
+    </div>
+    <div class="about">
+      <figure class="reveal">
+        <img src="assets/img/storefront.jpg" alt="康晟精密 廠房外觀" width="1287" height="971" loading="lazy">
+        <div class="since"><b>1990</b><small>EST. SHULIN, TAIWAN</small></div>
+        <figcaption><span>新北市樹林區</span><span class="mono">KANG CHENG PRECISION</span></figcaption>
+      </figure>
+      <div class="reveal">
+        <p class="lead">本公司主要從事生產精密五金模具，1990年成立於台灣樹林區。<br>10多年來，本經營團隊一直秉持著「凝聚生產力量,團結誕生希望」的精神,以提昇自身的素質、提高產品的品質為己任，並以提供顧客優良的產品為目標，用公正合理的價格，準確無誤的交貨期，務使顧客深切的感到：本經營團隊是可以完全信任的事業合作夥伴！</p>
+        <p class="en">Kang Cheng Precision Co., Ltd. company, was established in 1990 shulin City, Taiwan, major in producing precision mold parts. Over 10 years, we believed in &#8220;Cohesion , makes strength and unite bears hope&#8217;s spirit.&#8221; To promote oneself quality, the target of providing customers with excellent products, reasonable price and accurate delivery, we make customers deeply believe that we are the completely trustful cooperator.</p>
+        <div class="tenet" id="tenet">
+          <h3>公司宗旨<span class="h-en">Tenet</span></h3>
+          <p style="margin-top:12px">我們的宗旨就是秉持誠摯的態度來接待每位客戶。用合理、公正的價格及優良的產品滿足於客戶。同時，在市場上我們勇於挑戰難度較高的產品，代表著經營隊對事業的追求與自身技術的信心！</p>
+          <p>客戶滿意就是我們所追求最大目標；能獲得客戶的信賴是我們極高的榮幸。</p>
+          <p class="en">Our tenet is to receive every customer with sincere attitude and meet customer requirements with reasonable and fair price and excellent products.</p>
+          <p class="en" style="margin:0">Customer satisfaction is our pursuit. We need customers trust on us.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-	jQuery( document ).ready(function( $ ) {
+<!-- 02 營運範圍 -->
+<section class="block alt" id="business" data-no="02">
+  <div class="wrap marks">
+    <div class="sec-head reveal">
+      <div class="sec-no">02 / BUSINESS</div>
+      <h2>營運範圍<span>Business items</span></h2>
+    </div>
+    <ul class="biz reveal">
+      <li><span class="n mono">01</span><div><b>鎢鋼模具製造</b><span>Tungsten(Carbide) stell molds manufacture</span></div></li>
+      <li><span class="n mono">02</span><div><b>金屬零件製造</b><span>Metal parts manufacturing</span></div></li>
+      <li><span class="n mono">03</span><div><b>半導體零組件加工</b><span>Semiconductor Parts processing</span></div></li>
+      <li><span class="n mono">04</span><div><b>精密線割加工</b><span>Precision wire out processing</span></div></li>
+      <li><span class="n mono">05</span><div><b>特殊零件製造</b><span>Special parts manufacturing</span></div></li>
+      <li><span class="n mono">06</span><div><b>光學CNC加工</b><span>Optic CNC processing</span></div></li>
+    </ul>
+  </div>
+</section>
 
-		$( '.scroll-area a' ).on( 'click', function(e) {
-			e.preventDefault();
-			var movingPosition = 0;
+<!-- 03 服務內容 -->
+<section class="block" id="services" data-no="03">
+  <div class="wrap marks">
+    <div class="sec-head reveal">
+      <div class="sec-no">03 / SERVICES</div>
+      <h2>服務內容<span>Scope of Our Services</span></h2>
+    </div>
+    <div class="svc-intro reveal">
+      <div>
+        <p class="lead">我們致力耕耘精密模具，有幸在市場上取得了客戶的信賴，由於擁有廣大客戶支持，得以讓我們不斷在硬體與軟體上追求創新。</p>
+        <p>我們全力開發模具設計、開模、組模方面的技術，期待能提供客戶更迅捷、便利的服務。我們擁有精準的模組專業，可以為客戶省去模組的不便，減低失誤率，確實替客戶將生產時間縮短，有效提升產能，擴充服務價值。</p>
+      </div>
+      <div class="en">
+        <p>We dedicated ourselves on precision molding and earned our reputation. Due to the patronage of our vast customer base. We are able to continuously seek innovation on hardware as well as software.</p>
+        <p>We focus our efforts on the developments of design, molding ang technologies of assembly, in hoe that we are able to provide fater and better services to our customers.</p>
+        <p>We are the precision mold maker. We are here to ease the inconveniences of mold assembly and cus down the faults making sure that our customers bring up the production efficiency and shorten the production time.</p>
+      </div>
+    </div>
+    <div class="svc">
+      <article class="card reveal" id="wirecut">
+        <div class="tag">SERVICE · 01</div>
+        <h3>精密線切割加工<span class="h-en">Precision Wire Cut</span></h3>
+        <div class="kpi"><span>+0.001 m/m</span><span>R 0.025 m/m</span><span>RA 0.3</span></div>
+        <p>本廠特別採用最先進的浸水式線割機,公差精密度達+0.00 1m/m,內R角處理可達0.025m/m,超鏡面處理表面粗度可減低至RA 0.3。</p>
+        <p class="en">We particularly adopt the most advanced oiled wire cut machine with up to + 0.001 m/m in precision, inner R angle process reaches 0.025 m/m, super mirror processing decreases surface roughness to as low as RA 0.3.</p>
+        <img src="assets/img/parts-a.jpg" alt="精密線切割加工零件" loading="lazy">
+      </article>
+      <article class="card reveal" id="edm">
+        <div class="tag">SERVICE · 02</div>
+        <h3>CNC 放電加工<span class="h-en">CNC Electrical Discharge</span></h3>
+        <div class="kpi"><span>EDM</span></div>
+        <p>為了滿足公司的發展與客戶的需要,進一步提高產品的品質與生產效率,本公司特別 增購了高效率放電加工機。</p>
+        <p class="en">In order to satisfying customers needs, improving quality and production efficiency, we specially purchased high efficient Electrical Discharge Machine (EDM).</p>
+        <img src="assets/img/parts-b.jpg" alt="放電加工零件" loading="lazy">
+      </article>
+      <article class="card reveal" id="grinder">
+        <div class="tag">SERVICE · 03</div>
+        <h3>高精度平面磨床<span class="h-en">High Precision Surface Grinder</span></h3>
+        <div class="kpi"><span>±0.002 m/m</span></div>
+        <p>本廠擁有平面磨床,其效率極佳、精度高,公差可達±0.002m/m。我們對技術的用 心態度,在同業中取得了舉足輕重的地位;因此本公司的產品相當受市場青睞!</p>
+        <p class="en">We have surface grinder with high efficiency and high precision capabilities, the tolerance can be up to +0.002 m/m, We take pride in being a leading position in the industry and being able to provide industry leading products to the market.</p>
+        <img src="assets/img/parts-d.jpg" alt="平面研磨零件" loading="lazy">
+      </article>
+      <article class="card reveal" id="design">
+        <div class="tag">SERVICE · 04</div>
+        <h3>設計｜開模｜試模<span class="h-en">Design|Mold open|Mold test run</span></h3>
+        <div class="kpi"><span>DESIGN → DELIVERY</span></div>
+        <p>設計工程人員，從開發、設計、組模、試模到成品完成交客戶。</p>
+        <p class="en">Design engineers and tis operations ranges from develop, design, mold assembly, mold test run to finished product delivery to customers.</p>
+        <img src="assets/img/parts-c.jpg" alt="模具零件" loading="lazy">
+      </article>
+    </div>
+  </div>
+</section>
 
-			if ( $( this.hash ).offset().top > $( document ).height() - $( window ).height() ) {
-				movingPosition = $( document ).height() - $( window ).height();
-			} else {
-				movingPosition = $( this.hash ).offset().top;
-			}
+<!-- 04 流程 -->
+<section class="block dark" id="process" data-no="04">
+  <div class="wrap marks">
+    <div class="sec-head reveal">
+      <div class="sec-no">04 / PROCESS</div>
+      <h2>流程圖<span>Flow Chart</span></h2>
+    </div>
+    <ol class="flow reveal">
+      <li><b>繪製成品圖</b><span>Draw finished product diagram</span></li>
+      <li><b>繪製展開圖</b><span>Draw exploded view diagram</span></li>
+      <li><b>繪製工程簡圖</b><span>Draw engineering draft</span></li>
+      <li class="cust"><b>圖面送客戶審查</b><span>Approval of diagrams by customer</span></li>
+      <li><b>正式繪製模具圖</b><span>Draw engineering diagram</span></li>
+      <li><b>模具零件加工</b><span>Produce and process parts</span></li>
+      <li><b>模具組立</b><span>Assemble parts</span></li>
+      <li><b>試模</b><span>Test run</span></li>
+      <li class="cust"><b>客戶看樣無誤</b><span>Approval of samples by customer</span></li>
+      <li><b>小量試產</b><span>Pilot run</span></li>
+      <li class="final"><b>模具移交客戶</b><span>Deliver mold set to customer</span></li>
+    </ol>
+    <div class="legend"><span><i style="background:rgba(10,143,158,.6)"></i>客戶確認</span><span><i style="background:#fff"></i>交付</span></div>
+  </div>
+</section>
 
-			$( 'html, body' ).animate({
-				scrollTop: movingPosition
-			}, 500, 'swing' );
-		});
+<!-- 05 品質 -->
+<section class="block" id="quality" data-no="05">
+  <div class="wrap marks">
+    <div class="sec-head reveal">
+      <div class="sec-no">05 / QUALITY</div>
+      <h2>品質政策<span>Quality policy</span></h2>
+    </div>
+    <div class="values reveal" id="policy">
+      <div><span class="vn">01</span><b>顧客至上</b></div>
+      <div><span class="vn">02</span><b>品質第一</b></div>
+      <div><span class="vn">03</span><b>追求卓越</b></div>
+      <div><span class="vn">04</span><b>永續經營</b></div>
+    </div>
+    <p class="policy-en reveal">Customer uppermost, quality, first, perfect pursuit and continual improving.</p>
+    <div class="q-grid reveal" id="qc">
+      <div>
+        <h3>品質管理<span class="h-en">Quality Control</span></h3>
+      </div>
+      <div>
+        <p class="lead">我們以精益求精的態度,嚴格要求對產品品質的管制,不斷追蹤、檢討與改善,滿足 不同客戶之需求。 因為我們相信:唯有優質的產品,才能真正獲得客戶的青睞,這一直是我們努力不懈 的目標準!</p>
+        <p class="en">We strive for perfection. We strictly demand the quality and continuously track, review and improve to meeting customers needs. We firmly believe that only best quality can earn customer&#8217;s trust.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-		$( 'a.go-top' ).on( 'click' ,function(e) {
-			e.preventDefault();
-			$( 'html, body' ).animate( { scrollTop: 0 }, 1000 );
-		});
+<!-- 06 機器設備 -->
+<section class="block alt" id="equipment" data-no="06">
+  <div class="wrap marks">
+    <div class="sec-head reveal">
+      <div class="sec-no">06 / EQUIPMENT</div>
+      <h2>機器設備<span>Equipment</span></h2>
+    </div>
+    <div class="eq-photos reveal">
+      <img src="assets/img/equip-1.jpg" alt="NIKON 投影機量測儀" loading="lazy">
+      <img src="assets/img/equip-2.jpg" alt="廠內加工設備" loading="lazy">
+      <img src="assets/img/equip-3.jpg" alt="表面工具顯微鏡" loading="lazy">
+      <img src="assets/img/equip-4.jpg" alt="高度計" loading="lazy">
+    </div>
+    <div class="eq-wrap">
+      <table class="eq reveal">
+        <thead><tr><th>設備</th><th style="text-align:right">數量</th></tr></thead>
+        <tbody>
+          <tr><td>CNC線切割機（西部電機M75A）</td><td class="q">一台</td></tr>
+          <tr><td>CNC線切割機（西部電機M50B）</td><td class="q">三台</td></tr>
+          <tr><td>成形放電機(群基CJ-341)</td><td class="q">一台</td></tr>
+          <tr><td>細孔放電機(可騰KTH-202)</td><td class="q">一台</td></tr>
+          <tr><td>成形研磨機</td><td class="q">陸台</td></tr>
+          <tr><td>24V NIKON 投影機量測儀</td><td class="q">一台</td></tr>
+          <tr><td>12V NIKON 投影機量測儀</td><td class="q">一台</td></tr>
+          <tr><td>表面工具顯微鏡</td><td class="q">一台</td></tr>
+          <tr><td>TRIMOS TVA-600高度計</td><td class="q">一台</td></tr>
+          <tr><td>HEIDENHAIN高度儀MT-60M</td><td class="q">一台</td></tr>
+        </tbody>
+      </table>
+      <div class="exam reveal">
+        <h3>Examination Equipments:</h3>
+        <ul>
+          <li>24V NIKON projector measuring device</li>
+          <li>12V NIKON projector measuring device</li>
+          <li>Surface tool microscope</li>
+          <li>TRIMOS TVA-600 altimeter</li>
+          <li>HEIDENHAIN METRO MT-60M altimeter</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-		$( window ).scroll( function() {      
-			var windowTop =  $( window ).scrollTop();
-			if ( windowTop > 100 ) {
-				$( 'a.go-top' ).fadeIn( 300 );
-			} else {
-				$( 'a.go-top' ).fadeOut( 300 );
-			}
-		});
+<!-- 07 聯絡 -->
+<section class="block contact" id="contact" data-no="07">
+  <div class="wrap marks">
+    <div class="sec-head reveal">
+      <div class="sec-no">07 / CONTACT</div>
+      <h2>聯絡方式<span>Contact</span></h2>
+    </div>
+    <div class="c-grid">
+      <ul class="c-list reveal">
+        <li><span class="k">TEL 電話</span><span class="v big"><a href="tel:+886226883747">02-2688-3747</a></span></li>
+        <li><span class="k">FAX 傳真</span><span class="v big">02-2688-1794</span></li>
+        <li><span class="k">MAIL 信箱</span><span class="v"><a href="mailto:ch3747@ms48.hinet.net">ch3747@ms48.hinet.net</a></span></li>
+        <li><span class="k">ADDR 地址</span><span class="v">新北市樹林區三俊街90巷56弄23號</span></li>
+      </ul>
+      <div class="map reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1807.7956404828003!2d121.4138310580787!3d25.014000495995454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34681d6383cddf0d%3A0x84d43d16312f61ff!2z5bq35pmf57K-5a-G5pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1604500760344!5m2!1szh-TW!2stw" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="康晟精密有限公司 地圖"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
 
-		$( '#mynote-nav-bar' ).on( 'show.bs.collapse' , function () {
-			$( 'body' ).addClass( 'menu-is-collapsed' );
-		});
+<footer class="site">
+  <div class="wrap">
+    <span>著作權 &copy; <span class="cy">2020</span><script>document.currentScript.previousElementSibling.textContent=new Date().getFullYear()</script> 康晟精密有限公司. 保留一切權利。</span>
+    <span class="mono">KANG CHENG PRECISION CO., LTD. · SHULIN, NEW TAIPEI</span>
+  </div>
+</footer>
 
-		$( '#mynote-nav-bar' ).on( 'hidden.bs.collapse' , function () {
-			$( 'body' ).removeClass( 'menu-is-collapsed' );
-		});
-
-		/*
-
-		$( '#mynote-nav-bar' ).on( 'show.bs.collapse' , function () {
-			$( 'body' ).addClass( 'menu-is-collapsed' );
-			$( '.main-header' ).css( { 'top': '-60px' } ).animate( { 'top': '0px' }, 500 );
-			$( '.has-site-logo .search-bar' ).fadeOut( 500 );
-		});
-
-		$( '#mynote-nav-bar' ).on( 'hidden.bs.collapse' , function () {
-			$( '.main-header' ).css( { 'top': '0px' } ).animate( { 'top': '-60px' }, 500 );
-			$( '.has-site-logo .search-bar' ).fadeIn( 500 );
-			setTimeout(function() {
-				$( 'body' ).removeClass( 'menu-is-collapsed' );
-			}, 500);
-			
-		}); */
-	});
-
-	</script>
-	<script type='text/javascript' src='./wp-includes/js/wp-embed.min.js' id='wp-embed-js'></script>
-	<a href="javascript:void(0);" class="go-top" style="display: none">
-		<i class="fas fa-arrow-up"></i>
-	</a>
+<script>
+(function(){
+  var h=document.querySelector('header.site'),b=h.querySelector('.menu-btn');
+  b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded',false)})});
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
 </body>
 </html>
