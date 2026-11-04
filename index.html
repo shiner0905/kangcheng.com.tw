@@ -36,8 +36,8 @@ p{margin:0 0 14px}
 
 /* ---------- photo treatment: one steel tone for every picture ---------- */
 .ph{position:relative;background:#e9ecee;overflow:hidden}
-.ph img{width:100%;height:100%;filter:grayscale(1) contrast(1.06) brightness(1.02);mix-blend-mode:multiply}
-.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,143,158,.05),rgba(20,32,42,.08));pointer-events:none}
+.ph img{width:100%;height:100%;filter:saturate(.85) contrast(1.04);mix-blend-mode:multiply}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,143,158,.03),rgba(20,32,42,.04));pointer-events:none}
 
 /* ---------- signature: tolerance callout drawn as a dimension line ---------- */
 .dimv{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-weight:500;color:var(--ink);white-space:nowrap}
@@ -90,7 +90,7 @@ nav.main a.cta:hover .arr{transform:translateX(3px)}
 .link-arrow{font-weight:500;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:3px;transition:border-color .2s}
 .link-arrow:hover{border-color:var(--accent)}
 .hero-ph{aspect-ratio:1/1;border:1px solid var(--line);background:#fff}
-.hero-ph img{object-fit:contain;padding:28px;mix-blend-mode:multiply;filter:grayscale(1) contrast(1.08)}
+.hero-ph img{object-fit:contain;padding:28px;mix-blend-mode:multiply;filter:saturate(.9) contrast(1.04)}
 .hero-ph::after{display:none}
 
 /* ---------- spec band ---------- */
@@ -202,7 +202,7 @@ table.eq td.q{text-align:right;font-family:var(--mono);font-weight:500;color:var
 .c-list a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3);transition:border-color .2s}
 .c-list a:hover{border-color:#3fd0dc}
 .map{min-height:360px;background:#1d2a34;border:1px solid rgba(255,255,255,.12)}
-.map iframe{display:block;width:100%;height:100%;min-height:360px;border:0;filter:grayscale(1) contrast(1.05)}
+.map iframe{display:block;width:100%;height:100%;min-height:360px;border:0}
 footer.site{background:#0d161d;color:rgba(255,255,255,.55);font-size:var(--t-sm)}
 footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:24px;padding-bottom:24px}
 footer.site .mono{font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.06em}
