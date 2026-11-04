@@ -15,389 +15,273 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0f1a22; --ink-2:#2c3a45; --mute:#66737d; --line:#d9dee2; --line-2:#e9ecee;
-  --paper:#f6f7f6; --white:#fff; --steel:#18303f;
-  --accent:#0a8f9e; --accent-2:#e2f3f4; --red:#c8323a;
+  --ink:#14202a; --steel:#3b4a55; --mute:#6b7882; --faint:#9aa6ad;
+  --line:#dde2e5; --line-2:#eceff1; --paper:#f7f7f5; --white:#fff;
+  --accent:#0a8f9e; --accent-ink:#076d78; --accent-wash:#e6f3f4;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
-  --wrap:1180px; --r:4px;
+  --wrap:1160px; --r:4px;
+  /* type scale (7 steps) */
+  --t-xs:.74rem; --t-sm:.88rem; --t-base:1rem; --t-lead:1.08rem; --t-h3:1.22rem; --t-h2:clamp(1.7rem,2.6vw,2.15rem); --t-h1:clamp(2.5rem,5vw,4.1rem);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:76px}
-body{margin:0;font-family:var(--sans);color:var(--ink);background-color:var(--paper);background-image:radial-gradient(ellipse at 8% 18%,rgba(10,143,158,.075),transparent 34%),radial-gradient(ellipse at 92% 42%,rgba(91,133,157,.07),transparent 31%),linear-gradient(145deg,#f8f9f7 0%,#f1f5f5 48%,#f7f8f6 100%);background-attachment:fixed;line-height:1.75;-webkit-font-smoothing:antialiased;font-size:16px}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:var(--sans);font-size:var(--t-base);line-height:1.8;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
-.mono{font-family:var(--mono);letter-spacing:.02em}
-.en{color:var(--mute);font-size:.94rem;line-height:1.7}
+p{margin:0 0 14px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+.en{color:var(--mute);font-size:var(--t-sm);line-height:1.75}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 
-/* header */
-header.site{position:sticky;top:0;z-index:50;background:rgba(246,247,246,.92);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
-header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+/* ---------- photo treatment: one steel tone for every picture ---------- */
+.ph{position:relative;background:#e9ecee;overflow:hidden}
+.ph img{width:100%;height:100%;filter:grayscale(1) contrast(1.06) brightness(1.02);mix-blend-mode:multiply}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,143,158,.05),rgba(20,32,42,.08));pointer-events:none}
+
+/* ---------- signature: tolerance callout drawn as a dimension line ---------- */
+.dimv{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-weight:500;color:var(--ink);white-space:nowrap}
+.dimv::before,.dimv::after{content:"";flex:1;min-width:14px;height:1px;background:var(--accent);
+  -webkit-mask:linear-gradient(90deg,#000,#000) center/100% 1px no-repeat;}
+.dimv::before{border-left:1px solid var(--accent);height:9px;background:linear-gradient(var(--accent),var(--accent)) center/100% 1px no-repeat}
+.dimv::after{border-right:1px solid var(--accent);height:9px;background:linear-gradient(var(--accent),var(--accent)) center/100% 1px no-repeat}
+.dimv small{font-size:.62em;color:var(--mute);font-weight:400;margin-left:2px}
+
+/* ---------- header ---------- */
+header.site{position:sticky;top:0;z-index:50;background:rgba(247,247,245,.93);backdrop-filter:saturate(1.3) blur(10px);-webkit-backdrop-filter:saturate(1.3) blur(10px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;position:relative}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand img{width:38px;height:38px;border-radius:6px}
-.brand b{font-weight:700;font-size:1.05rem;letter-spacing:.06em;display:block;line-height:1.2}
-.brand small{display:block;font-family:var(--mono);font-size:.68rem;color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
-nav.main{display:flex;gap:2px;align-items:center}
-nav.main a{position:relative;display:inline-flex;align-items:baseline;gap:7px;text-decoration:none;font-size:.92rem;font-weight:500;letter-spacing:.04em;
-  padding:10px 13px;color:var(--ink-2);transition:color .2s}
-nav.main a .ni{width:17px;height:17px;flex:none;align-self:center;color:#93a1a8;transition:color .2s,transform .28s cubic-bezier(.2,.7,.3,1)}
+.brand img{width:36px;height:36px;border-radius:5px}
+.brand b{display:block;font-size:1.02rem;font-weight:700;letter-spacing:.06em;line-height:1.25}
+.brand small{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;color:var(--mute);text-transform:uppercase}
+nav.main{display:flex;align-items:center;gap:2px}
+nav.main a{position:relative;display:inline-flex;align-items:center;gap:7px;padding:10px 12px;text-decoration:none;font-size:.92rem;font-weight:500;letter-spacing:.04em;color:var(--steel);transition:color .2s}
+nav.main a .ni{width:16px;height:16px;flex:none;color:var(--faint);transition:color .2s}
+nav.main a:not(.cta)::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
+nav.main a:not(.cta):hover,nav.main a.active{color:var(--ink)}
 nav.main a:hover .ni,nav.main a.active .ni{color:var(--accent)}
-nav.main a:hover .ni{transform:translateY(-1px) scale(1.08)}
-nav.main a .nn{font-family:var(--mono);font-size:.64rem;font-weight:400;letter-spacing:.04em;color:#9aa6ad;transition:color .2s}
-nav.main a:not(.cta)::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;border-radius:2px;background:var(--accent);
-  transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
-nav.main a:not(.cta):hover{color:var(--ink)}
-nav.main a:not(.cta):hover::after{transform:scaleX(1)}
-nav.main a:hover .nn{color:var(--accent)}
-nav.main a.active{color:var(--ink)}
-nav.main a.active .nn{color:var(--accent)}
-nav.main a.active::after{transform:scaleX(1)}
-nav.main .sep{width:1px;height:22px;background:var(--line);margin:0 10px 0 8px}
-nav.main a.cta{gap:9px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;box-shadow:0 6px 14px -8px rgba(15,26,34,.6);transition:background .2s,transform .2s,box-shadow .2s}
-nav.main a.cta .dot{width:7px;height:7px;border-radius:50%;background:#3fd0dc;box-shadow:0 0 0 3px rgba(63,208,220,.22);align-self:center}
+nav.main a:not(.cta):hover::after,nav.main a.active::after{transform:scaleX(1)}
+nav.main .sep{width:1px;height:20px;background:var(--line);margin:0 10px 0 8px}
+nav.main a.cta{gap:9px;padding:9px 16px;border-radius:999px;background:var(--ink);color:#fff;transition:background .2s}
+nav.main a.cta .dot{width:7px;height:7px;border-radius:50%;background:#3fd0dc}
 nav.main a.cta .arr{font-family:var(--mono);transition:transform .2s}
-nav.main a.cta:hover{background:var(--accent);transform:translateY(-1px);box-shadow:0 10px 18px -10px rgba(10,143,158,.8)}
+nav.main a.cta:hover{background:var(--accent-ink)}
 nav.main a.cta:hover .arr{transform:translateX(3px)}
-nav.main a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
-.read-bar{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:linear-gradient(90deg,var(--accent),#5fc3cc);transform:scaleX(var(--p,0));transform-origin:left;pointer-events:none}
-.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:var(--r);width:42px;height:42px;cursor:pointer;align-items:center;justify-content:center}
-.menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:18px;height:2px;background:var(--ink);position:relative;content:"";transition:.2s}
+.read-bar{position:absolute;left:0;bottom:-1px;width:100%;height:2px;background:var(--accent);transform:scaleX(var(--p,0));transform-origin:left;pointer-events:none}
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:var(--r);background:none;cursor:pointer;align-items:center;justify-content:center}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{content:"";display:block;width:18px;height:2px;background:var(--ink);position:relative;transition:.2s}
 .menu-btn span::before{position:absolute;top:-6px}.menu-btn span::after{position:absolute;top:6px}
 .open .menu-btn span{background:transparent}.open .menu-btn span::before{top:0;transform:rotate(45deg)}.open .menu-btn span::after{top:0;transform:rotate(-45deg)}
 
-/* hero */
-.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
-  background-color:#f4f7f6;
-  background-image:radial-gradient(ellipse 48% 78% at 82% 48%,rgba(10,143,158,.15),transparent 72%),radial-gradient(ellipse 36% 60% at 8% 92%,rgba(196,132,65,.10),transparent 74%),radial-gradient(ellipse 50% 60% at 52% 0%,rgba(255,255,255,.88),transparent 76%),linear-gradient(132deg,#f8f9f7 0%,#eef4f4 52%,#f5f6f3 100%)}
-.hero::before{content:"";position:absolute;inset:-16% 0 -18%;z-index:0;pointer-events:none;opacity:.46;
-  background-image:url("assets/img/blue-globe.png"),url("assets/img/blue-globe.png"),url("assets/img/blue-globe.png");
-  background-repeat:no-repeat;background-size:min(68vw,860px),min(42vw,530px),min(42vw,530px);
-  background-position:76% 48%,-10% -16%,112% 116%}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:88px;padding-bottom:88px}
-.eyebrow{font-family:var(--mono);font-size:.78rem;color:var(--accent);letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin:0 0 20px}
-.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
-.hero h1{font-size:clamp(2.4rem,5.2vw,4rem);line-height:1.15;margin:0 0 6px;font-weight:900;letter-spacing:.04em}
-.hero .h1-en{font-family:var(--mono);font-size:clamp(.85rem,1.4vw,1rem);color:var(--mute);letter-spacing:.06em;margin:0 0 28px}
-.hero .tagline{font-size:1.06rem;color:var(--ink-2);max-width:34em;margin:0 0 36px}
-.cap-label{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--mute);text-transform:uppercase;margin:0 0 12px;display:flex;align-items:center;gap:10px}
-.cap-label::after{content:"";flex:1;max-width:120px;height:1px;background:var(--line)}
-.tags{display:grid;grid-template-columns:repeat(3,max-content);gap:8px;margin:0 0 36px;padding:0;list-style:none;counter-reset:cap}
-.tags li{counter-increment:cap;position:relative;display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:500;padding:9px 14px 9px 12px;
-  background:rgba(255,255,255,.86);border:1px solid var(--line);border-radius:3px;box-shadow:0 1px 0 rgba(15,26,34,.04);
-  transition:border-color .18s,transform .18s,box-shadow .18s}
-.tags li::before{content:counter(cap,decimal-leading-zero);font-family:var(--mono);font-size:.68rem;font-weight:400;color:var(--accent);
-  padding-right:10px;border-right:1px solid var(--line);line-height:1.2}
-.tags li::after{content:"";position:absolute;left:-1px;top:-1px;bottom:-1px;width:3px;background:var(--accent);border-radius:3px 0 0 3px;opacity:0;transition:opacity .18s}
-.tags li:hover{border-color:#b9c6cc;transform:translateY(-1px);box-shadow:0 6px 14px -8px rgba(15,26,34,.25)}
-.tags li:hover::after{opacity:1}
-.btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:var(--r);text-decoration:none;font-weight:500;font-size:.95rem;border:1px solid var(--ink);transition:.15s}
-.btn.primary{background:var(--ink);color:#fff}.btn.primary:hover{background:var(--accent);border-color:var(--accent)}
-.btn.ghost:hover{background:var(--ink);color:#fff}
-.hero-fig{position:relative;background:var(--white);border:1px solid var(--line);padding:28px}
-.hero-fig img{width:100%;aspect-ratio:1/1;object-fit:contain}
-.dim{position:absolute;font-family:var(--mono);font-size:.72rem;color:var(--accent);background:var(--white);padding:2px 6px;border:1px solid var(--accent);white-space:nowrap}
-.dim.a{top:-12px;left:28px}.dim.b{bottom:-12px;right:28px}
-.corner{position:absolute;width:14px;height:14px;border-color:var(--ink)}
-.corner.tl{top:-1px;left:-1px;border-top:2px solid;border-left:2px solid}.corner.br{bottom:-1px;right:-1px;border-bottom:2px solid;border-right:2px solid}
+/* ---------- hero ---------- */
+.hero{position:relative;border-bottom:1px solid var(--line);
+  background-image:linear-gradient(var(--line-2) 1px,transparent 1px),linear-gradient(90deg,var(--line-2) 1px,transparent 1px);background-size:40px 40px;background-position:-1px -1px}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--paper) 30%,rgba(247,247,245,.4) 70%,var(--paper));pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;padding-top:96px;padding-bottom:88px}
+.eyebrow{font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);margin:0 0 22px}
+.hero h1{font-size:var(--t-h1);font-weight:900;line-height:1.12;letter-spacing:.05em;margin:0 0 10px}
+.hero .h1-en{font-family:var(--mono);font-size:var(--t-sm);letter-spacing:.1em;color:var(--mute);margin:0 0 34px}
+.caps{list-style:none;margin:0 0 40px;padding:18px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,max-content);gap:10px 34px}
+.caps li{position:relative;padding-left:16px;font-size:.98rem;font-weight:500;color:var(--steel)}
+.caps li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:6px;background:var(--accent)}
+.btns{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:var(--r);background:var(--ink);color:#fff;text-decoration:none;font-weight:500;transition:background .2s}
+.btn:hover{background:var(--accent-ink)}
+.link-arrow{font-weight:500;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:3px;transition:border-color .2s}
+.link-arrow:hover{border-color:var(--accent)}
+.hero-ph{aspect-ratio:1/1;border:1px solid var(--line);background:#fff}
+.hero-ph img{object-fit:contain;padding:28px;mix-blend-mode:multiply;filter:grayscale(1) contrast(1.08)}
+.hero-ph::after{display:none}
 
-/* spec strip */
-.specs{background:var(--steel);color:#fff}
+/* ---------- spec band ---------- */
+.specs{background:var(--white);border-bottom:1px solid var(--line)}
 .specs .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
-.spec{padding:30px 24px;border-left:1px solid rgba(255,255,255,.12)}
-.spec:last-child{border-right:1px solid rgba(255,255,255,.12)}
-.spec .v{font-family:var(--mono);font-size:clamp(1.4rem,2.6vw,2rem);font-weight:500;line-height:1.2}
-.spec .v small{font-size:.55em;opacity:.7;margin-left:4px}
-.spec .k{font-size:.86rem;opacity:.72;margin-top:6px}
+.spec{padding:30px 26px 28px;border-left:1px solid var(--line)}
+.spec:last-child{border-right:1px solid var(--line)}
+.spec .dimv{font-size:clamp(1.25rem,2.1vw,1.6rem);width:100%}
+.spec .k{font-size:var(--t-sm);color:var(--mute);margin-top:10px;text-align:center}
 
-/* sections */
-section.block{padding:104px 0;border-bottom:1px solid var(--line);position:relative;overflow:hidden;isolation:isolate}
-section.block > .wrap{position:relative;z-index:1}
-/* paper sections: fine dot grid fading from top-right */
-section.block::before{content:"";position:absolute;inset:0;z-index:-1;
-  background-image:radial-gradient(circle,#c3cbd1 1px,transparent 1.3px);background-size:22px 22px;
-  -webkit-mask-image:radial-gradient(ellipse 70% 80% at 100% 0%,#000 0%,transparent 70%);mask-image:radial-gradient(ellipse 70% 80% at 100% 0%,#000 0%,transparent 70%);opacity:.9}
-/* white sections: blueprint grid fading from bottom-left + soft tint */
-section.block.alt{background:linear-gradient(180deg,#fff 0%,#f1f6f7 100%)}
-section.block.alt::before{background-image:linear-gradient(#e3eaed 1px,transparent 1px),linear-gradient(90deg,#e3eaed 1px,transparent 1px);background-size:40px 40px;
-  -webkit-mask-image:radial-gradient(ellipse 65% 75% at 0% 100%,#000 0%,transparent 72%);mask-image:radial-gradient(ellipse 65% 75% at 0% 100%,#000 0%,transparent 72%)}
-/* big watermark section number */
-section.block::after{content:attr(data-no);position:absolute;z-index:-1;top:40px;right:-0.04em;font-family:var(--mono);font-weight:500;
-  font-size:clamp(9rem,22vw,20rem);line-height:1;color:transparent;-webkit-text-stroke:1px #d3dade;letter-spacing:-.04em;pointer-events:none}
-/* registration marks at section corners */
-.wrap.marks::before,.wrap.marks::after{content:"";position:absolute;width:18px;height:18px;background:
-  linear-gradient(var(--ink-2),var(--ink-2)) center/100% 1px no-repeat,linear-gradient(var(--ink-2),var(--ink-2)) center/1px 100% no-repeat;opacity:.35}
-.wrap.marks::before{top:-64px;left:24px}.wrap.marks::after{bottom:-64px;right:24px}
-
-/* dark section variant */
-section.block.dark{background:var(--steel);color:#fff;border-bottom-color:transparent}
-section.block.dark::before{background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:40px 40px;
-  -webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%)}
-section.block.dark::after{-webkit-text-stroke-color:rgba(255,255,255,.1)}
-.dark .sec-no{border-color:#fff;color:rgba(255,255,255,.6)}
-.dark .sec-head h2 span{color:rgba(255,255,255,.55)}
-.dark .wrap.marks::before,.dark .wrap.marks::after{background:linear-gradient(#fff,#fff) center/100% 1px no-repeat,linear-gradient(#fff,#fff) center/1px 100% no-repeat}
-.dark .flow{border-color:rgba(255,255,255,.14)}
-.dark .flow li,.alt.dark .flow li{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.14)}
-.dark .flow li::before{color:rgba(255,255,255,.5)}
-.dark .flow li::after{color:rgba(255,255,255,.25)}
-.dark .flow span{color:rgba(255,255,255,.6)}
-.dark .flow li.cust{background:rgba(10,143,158,.28)}
-.dark .flow li.cust::before{color:#7fd6de}
-.dark .flow li.final{background:#fff;color:var(--ink)}
-.dark .flow li.final span,.dark .flow li.final::before{color:var(--mute)}
-.dark .legend{color:rgba(255,255,255,.6)}
-.dark .legend i{border-color:rgba(255,255,255,.3)}
-
-/* airy blue globe motifs add texture through the long light sections */
-section.block:not(.dark):not(.contact)::before{opacity:.42;
-  background-image:url("assets/img/blue-globe.png"),radial-gradient(circle,#c3cbd1 1px,transparent 1.3px);
-  background-size:min(46vw,580px),22px 22px;background-position:calc(100% + 165px) 48%,0 0;
-  background-repeat:no-repeat,repeat}
-section.block.alt:not(.dark):not(.contact)::before{background-image:url("assets/img/blue-globe.png"),linear-gradient(#e3eaed 1px,transparent 1px),linear-gradient(90deg,#e3eaed 1px,transparent 1px);
-  background-size:min(46vw,580px),40px 40px,40px 40px;background-position:calc(100% + 165px) 48%,0 0,0 0;
-  background-repeat:no-repeat,repeat,repeat;-webkit-mask-image:radial-gradient(ellipse 90% 90% at 85% 45%,#000 0%,transparent 88%);mask-image:radial-gradient(ellipse 90% 90% at 85% 45%,#000 0%,transparent 88%)}
-
-/* contact keeps its own dark bg; tone the decorations */
-section.block.contact::before{background-image:radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1.3px)}
-section.block.contact::after{-webkit-text-stroke-color:rgba(255,255,255,.08)}
-.sec-head{display:grid;grid-template-columns:220px 1fr;gap:40px;margin-bottom:56px;align-items:end}
-.sec-no{font-family:var(--mono);font-size:.78rem;color:var(--mute);letter-spacing:.12em;border-top:2px solid var(--ink);padding-top:12px;align-self:start}
-.sec-head h2{font-size:clamp(1.7rem,3vw,2.3rem);margin:0;line-height:1.3;letter-spacing:.04em}
-.sec-head h2 span{display:block;font-family:var(--mono);font-size:.9rem;color:var(--mute);font-weight:400;letter-spacing:.06em;margin-top:6px}
-h3{font-size:1.25rem;margin:0 0 4px;letter-spacing:.03em;line-height:1.4}
-h3 .h-en{display:block;font-family:var(--mono);font-size:.78rem;color:var(--mute);font-weight:400;letter-spacing:.04em;margin-top:2px}
-p{margin:0 0 14px}
+/* ---------- sections ---------- */
+section.block{padding:112px 0;border-bottom:1px solid var(--line)}
+section.block.tight{padding:80px 0}
+section.block.white{background:var(--white)}
+.head{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:48px}
+.head h2{font-size:var(--t-h2);font-weight:800;letter-spacing:.06em;line-height:1.3;margin:0}
+.head .h2-en{font-family:var(--mono);font-size:var(--t-sm);color:var(--mute);letter-spacing:.06em}
+h3{font-size:var(--t-h3);font-weight:700;letter-spacing:.04em;line-height:1.45;margin:0 0 4px}
+h3 .h-en{display:block;font-family:var(--mono);font-size:var(--t-xs);font-weight:400;letter-spacing:.06em;color:var(--mute);margin-top:2px}
+.lead{font-size:var(--t-lead);color:var(--ink);line-height:1.9}
 
 /* about */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.about figure{margin:0;position:relative}
-.about figure img{border:1px solid var(--line);width:100%;aspect-ratio:4/3;object-fit:cover}
-.about figcaption{font-family:var(--mono);font-size:.74rem;color:var(--mute);margin-top:10px;display:flex;justify-content:space-between}
-.since{position:absolute;left:-1px;bottom:-1px;background:var(--ink);color:#fff;padding:14px 20px;font-family:var(--mono)}
-.since b{display:block;font-size:1.6rem;font-weight:500;line-height:1}
-.since small{font-size:.7rem;opacity:.7;letter-spacing:.1em}
-.lead{font-size:1.08rem;color:var(--ink-2)}
-.tenet{margin-top:40px;padding:28px;background:var(--white);border:1px solid var(--line);border-left:3px solid var(--accent)}
-.alt .tenet{background:var(--paper)}
+.about{display:grid;grid-template-columns:5fr 6fr;gap:64px;align-items:start}
+.about figure{margin:0}
+.about .ph{aspect-ratio:4/3}
+.about .ph img{object-fit:cover}
+.about figcaption{display:flex;justify-content:space-between;align-items:baseline;padding-top:14px;border-top:1px solid var(--ink);margin-top:14px;font-size:var(--t-sm);color:var(--mute)}
+.about figcaption b{font-family:var(--mono);font-size:1.5rem;font-weight:500;color:var(--ink);letter-spacing:.02em}
+.tenet{margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
+.tenet h3{margin-bottom:12px}
 
-/* business items */
-.biz{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;list-style:none;padding:0;margin:0}
-.biz li{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:18px;padding:30px 28px 28px;min-height:212px;
-  background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:6px;
-  transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s,border-color .25s}
-.biz li::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--accent),#5fc3cc);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.3,1)}
-.biz li:hover{transform:translateY(-4px);border-color:#c5d3d8;box-shadow:0 18px 34px -22px rgba(15,26,34,.45)}
-.biz li:hover::before{transform:scaleX(1)}
-.biz .n{position:absolute;right:18px;top:10px;font-family:var(--mono);font-size:4.2rem;font-weight:500;line-height:1;letter-spacing:-.04em;
-  color:transparent;-webkit-text-stroke:1px #d3dce0;transition:-webkit-text-stroke-color .25s}
-.biz li:hover .n{-webkit-text-stroke-color:rgba(10,143,158,.45)}
-.biz .ico{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;color:var(--accent);background:var(--accent-2);
-  box-shadow:inset 0 0 0 1px rgba(10,143,158,.18);transition:background .25s,color .25s}
-.biz .ico svg{width:26px;height:26px}
-.biz li:hover .ico{background:var(--accent);color:#fff}
-.biz b{display:block;font-size:1.18rem;font-weight:700;letter-spacing:.03em}
-.biz div > span{display:block;color:var(--mute);font-size:.86rem;margin-top:6px;line-height:1.55;padding-top:10px;border-top:1px dashed var(--line)}
+/* business */
+.biz{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.biz li{display:flex;gap:18px;align-items:flex-start;padding:28px 24px 28px 0;border-bottom:1px solid var(--line)}
+.biz li:nth-child(3n+2),.biz li:nth-child(3n){padding-left:24px;border-left:1px solid var(--line)}
+.biz .ico{flex:none;width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--line);border-radius:8px;color:var(--accent-ink);background:var(--white);transition:border-color .2s,color .2s}
+.biz .ico svg{width:22px;height:22px}
+.biz li:hover .ico{border-color:var(--accent);color:var(--accent)}
+.biz b{display:block;font-size:1.06rem;font-weight:700;letter-spacing:.04em}
+.biz div > span{display:block;font-size:var(--t-sm);color:var(--mute);margin-top:2px;line-height:1.55}
 
 /* services */
-.svc-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:64px}
-.svc{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.card{background:var(--white);border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;position:relative}
-.alt .card{background:var(--paper)}
-.card .tag{font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.1em;margin-bottom:14px}
-.card .kpi{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px}
-.card .kpi span{font-family:var(--mono);font-size:.8rem;padding:4px 10px;background:var(--accent-2);color:#06606a;border-radius:2px}
-.card img{margin-top:auto;padding-top:16px;width:100%;max-height:240px;object-fit:contain}
+.svc-intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:64px}
+.svc{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.card{background:var(--white);padding:36px 34px 32px;display:flex;flex-direction:column}
+.card .kpi{display:flex;flex-direction:column;gap:6px;margin:18px 0 20px;max-width:300px}
+.card .kpi .dimv{font-size:.9rem}
+.card .kpi .word{font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.12em;color:var(--accent-ink);text-transform:uppercase}
+.card .ph{margin-top:auto;height:220px;background:var(--paper)}
+.card .ph img{object-fit:contain;padding:18px}
+.card .gap{flex:1;min-height:12px}
 
-/* process */
-.flow{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.flow li{counter-increment:s;padding:24px 20px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white);position:relative;min-height:128px}
-.alt .flow li{background:var(--paper)}
-.flow li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:.74rem;color:var(--mute);display:block;margin-bottom:10px}
-.flow li::after{content:"→";position:absolute;right:16px;top:20px;font-family:var(--mono);color:var(--line)}
-.flow li:last-child::after{content:""}
-.flow b{display:block;font-size:1.04rem}
-.flow span{display:block;color:var(--mute);font-size:.84rem;line-height:1.5;margin-top:4px}
-.flow li.cust{background:var(--accent-2)}
-.flow li.cust::before{color:var(--accent)}
-.flow li.final{background:var(--ink);color:#fff}
-.flow li.final span,.flow li.final::before{color:rgba(255,255,255,.65)}
-.legend{display:flex;gap:20px;margin-top:16px;font-size:.82rem;color:var(--mute)}
-.legend i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px;border:1px solid var(--line)}
-.design-text{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px}
+/* process: flat snake, 3 columns */
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(4,auto);gap:30px 56px;counter-reset:s}
+.flow li{counter-increment:s;position:relative;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px 20px 64px;min-height:96px;transition:border-color .2s}
+.flow li:hover{border-color:#b9c4ca}
+.flow li::before{content:counter(s,decimal-leading-zero);position:absolute;left:20px;top:20px;font-family:var(--mono);font-size:var(--t-sm);font-weight:500;color:var(--faint)}
+.flow b{display:block;font-size:1.04rem;font-weight:700;letter-spacing:.04em;line-height:1.4}
+.flow span{display:block;font-size:var(--t-sm);color:var(--mute);line-height:1.5;margin-top:3px}
+.flow li.cust{border-color:var(--accent);background:var(--accent-wash)}
+.flow li.cust::before{color:var(--accent-ink)}
+.flow li.cust b::after{content:"客戶確認";margin-left:10px;padding:1px 7px;font-family:var(--mono);font-size:.68rem;font-weight:500;letter-spacing:.06em;color:#fff;background:var(--accent-ink);border-radius:2px;vertical-align:2px}
+.flow li.final{background:var(--ink);border-color:var(--ink);color:#fff}
+.flow li.final::before{color:#7fd6de}
+.flow li.final span{color:rgba(255,255,255,.7)}
+.flow li:nth-child(1){grid-column:1;grid-row:1}.flow li:nth-child(2){grid-column:1;grid-row:2}.flow li:nth-child(3){grid-column:1;grid-row:3}.flow li:nth-child(4){grid-column:1;grid-row:4}
+.flow li:nth-child(5){grid-column:2;grid-row:4}.flow li:nth-child(6){grid-column:2;grid-row:3}.flow li:nth-child(7){grid-column:2;grid-row:2}.flow li:nth-child(8){grid-column:2;grid-row:1}
+.flow li:nth-child(9){grid-column:3;grid-row:1}.flow li:nth-child(10){grid-column:3;grid-row:2}.flow li:nth-child(11){grid-column:3;grid-row:3}
+.flow li::after{content:"";position:absolute;width:22px;height:22px;background:var(--faint);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v15M6 13l6 6 6-6'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v15M6 13l6 6 6-6'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.flow li:nth-child(1)::after,.flow li:nth-child(2)::after,.flow li:nth-child(3)::after,.flow li:nth-child(9)::after,.flow li:nth-child(10)::after{left:50%;top:calc(100% + 4px);transform:translateX(-50%)}
+.flow li:nth-child(4)::after,.flow li:nth-child(8)::after{left:calc(100% + 17px);top:50%;transform:translateY(-50%) rotate(-90deg);background:var(--accent)}
+.flow li:nth-child(5)::after,.flow li:nth-child(6)::after,.flow li:nth-child(7)::after{left:50%;top:-26px;transform:translateX(-50%) rotate(180deg)}
+.flow li:last-child::after{display:none}
 
 /* quality */
-.policy-panel{position:relative;overflow:hidden;border-radius:8px;margin-bottom:56px;color:#fff;
-  background:radial-gradient(ellipse at 100% 0%,rgba(10,143,158,.35),transparent 55%),linear-gradient(135deg,#132833 0%,var(--steel) 55%,#0f1f29 100%);
-  box-shadow:0 24px 50px -30px rgba(15,26,34,.6)}
-.policy-panel::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:36px 36px;
-  -webkit-mask-image:linear-gradient(180deg,#000,transparent 90%);mask-image:linear-gradient(180deg,#000,transparent 90%)}
-.values{position:relative;display:grid;grid-template-columns:repeat(4,1fr)}
-.values div{position:relative;padding:40px 30px 36px;border-right:1px solid rgba(255,255,255,.1);transition:background .25s}
-.values div:last-child{border-right:0}
-.values div:hover{background:rgba(255,255,255,.04)}
-.values .vn{display:block;font-family:var(--mono);font-size:3.4rem;font-weight:500;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.28);margin-bottom:22px}
-.values b{display:block;font-size:clamp(1.5rem,2.2vw,1.9rem);letter-spacing:.12em;font-weight:900}
-.values em{display:flex;align-items:center;gap:8px;font-style:normal;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#8fd3da;margin-top:12px}
-.values em::before{content:"";width:16px;height:2px;background:var(--accent)}
-.q-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.policy-en{position:relative;margin:0;padding:22px 30px;border-top:1px solid rgba(255,255,255,.1);font-family:var(--mono);font-size:.86rem;color:rgba(255,255,255,.72);display:flex;gap:14px;align-items:baseline}
-.policy-en::before{content:"\201C";font-family:Georgia,serif;font-size:2rem;line-height:0;color:var(--accent);transform:translateY(8px)}
+.values{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
+.values div{padding:30px 24px 28px;border-left:1px solid var(--line)}
+.values div:first-child{border-left:0;padding-left:0}
+.values b{display:block;font-size:clamp(1.4rem,2.3vw,1.85rem);font-weight:900;letter-spacing:.14em}
+.values em{display:block;font-style:normal;font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);margin-top:8px}
+.policy-en{font-family:var(--mono);font-size:var(--t-sm);color:var(--mute);margin:16px 0 64px}
+.q-grid{display:grid;grid-template-columns:5fr 6fr;gap:64px;align-items:start}
 
 /* equipment */
-.eq-photos{display:grid;grid-template-columns:1fr 2fr 1fr 1fr;gap:12px;margin-bottom:48px}
-.eq-photos img{width:100%;height:200px;object-fit:cover;border:1px solid var(--line)}
-.eq-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
-table.eq{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line)}
-table.eq caption{text-align:left;font-weight:700;font-size:1.05rem;padding-bottom:12px}
-table.eq th,table.eq td{padding:13px 18px;border-bottom:1px solid var(--line-2);text-align:left;font-size:.95rem}
-table.eq th{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--mute);font-weight:400;background:var(--paper);border-bottom:1px solid var(--line)}
-table.eq td.q{text-align:right;white-space:nowrap;font-weight:500;color:var(--accent)}
-table.eq tr:last-child td{border-bottom:0}
-.exam{background:var(--white);border:1px solid var(--line);padding:24px 26px}
-.exam h3{font-size:1.05rem;margin-bottom:12px}
-.exam ul{margin:0;padding:0;list-style:none}
-.exam li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:.92rem;color:var(--ink-2)}
-.exam li:last-child{border-bottom:0}
+.eq-photos{display:grid;grid-template-columns:1fr 2fr 1fr 1fr;gap:10px;margin-bottom:40px}
+.eq-photos .ph{height:170px}
+.eq-photos .ph img{object-fit:cover}
+.eq-wrap{display:grid;grid-template-columns:3fr 2fr;gap:48px;align-items:start}
+table.eq{width:100%;border-collapse:collapse;border-top:2px solid var(--ink)}
+table.eq th{font-family:var(--mono);font-size:var(--t-xs);font-weight:400;letter-spacing:.1em;color:var(--mute);text-align:left;padding:12px 0;border-bottom:1px solid var(--line)}
+table.eq td{padding:11px 0;border-bottom:1px solid var(--line-2);font-size:.95rem}
+table.eq td.q{text-align:right;font-family:var(--mono);font-weight:500;color:var(--accent-ink);white-space:nowrap}
+.exam{border-top:2px solid var(--ink)}
+.exam h3{font-size:1rem;padding:12px 0;margin:0;border-bottom:1px solid var(--line)}
+.exam ul{list-style:none;margin:0;padding:0}
+.exam li{padding:11px 0;border-bottom:1px solid var(--line-2);font-size:.92rem;color:var(--steel)}
 
 /* contact */
 .contact{background:var(--ink);color:#fff;border-bottom:0}
-.contact .sec-no{border-color:#fff;color:rgba(255,255,255,.6)}
-.contact .sec-head h2 span{color:rgba(255,255,255,.55)}
-.c-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:40px}
-.c-list{list-style:none;padding:0;margin:0;border-top:1px solid rgba(255,255,255,.15)}
-.c-list li{display:grid;grid-template-columns:72px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.15);align-items:baseline}
-.c-list .k{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;color:rgba(255,255,255,.55)}
-.c-list .v{font-size:1.1rem}
-.c-list a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);transition:border-color .15s}
-.c-list a:hover{border-color:var(--accent)}
-.c-list .v.big{font-family:var(--mono);font-size:1.5rem;letter-spacing:.02em}
-.map{border:1px solid rgba(255,255,255,.15);min-height:380px;background:#1b2832}
-.map iframe{width:100%;height:100%;min-height:380px;border:0;display:block;filter:grayscale(.35)}
+.contact .h2-en{color:rgba(255,255,255,.5)}
+.c-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:48px}
+.c-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.18)}
+.c-list li{display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:baseline;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.c-list .k{font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.1em;color:rgba(255,255,255,.5)}
+.c-list .v{font-size:1.06rem}
+.c-list .v.big{font-family:var(--mono);font-size:1.45rem;letter-spacing:.02em}
+.c-list a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3);transition:border-color .2s}
+.c-list a:hover{border-color:#3fd0dc}
+.map{min-height:360px;background:#1d2a34;border:1px solid rgba(255,255,255,.12)}
+.map iframe{display:block;width:100%;height:100%;min-height:360px;border:0;filter:grayscale(1) contrast(1.05)}
+footer.site{background:#0d161d;color:rgba(255,255,255,.55);font-size:var(--t-sm)}
+footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:24px;padding-bottom:24px}
+footer.site .mono{font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.06em}
 
-footer.site{background:#0a1218;color:rgba(255,255,255,.55);font-size:.82rem}
-footer.site .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:26px;padding-bottom:26px;flex-wrap:wrap}
-footer.site .mono{font-size:.74rem}
-
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
-/* responsive */
+/* ---------- responsive ---------- */
+@media (max-width:1060px){
+  nav.main a{padding:10px 9px}
+  nav.main .sep{margin:0 6px}
+}
 @media (max-width:980px){
-  .hero .wrap,.about,.svc-intro,.q-grid,.design-text,.eq-wrap,.c-grid{grid-template-columns:1fr;gap:36px}
-  .hero .wrap{padding-top:56px;padding-bottom:64px}
-  .sec-head{grid-template-columns:1fr;gap:16px}
-  .flow{grid-template-columns:repeat(2,1fr)}
-  .biz{grid-template-columns:repeat(2,1fr)}
-  .values{grid-template-columns:repeat(2,1fr)}
-  .values div:nth-child(2){border-right:0}
-  .values div:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.1)}
-  .tags{grid-template-columns:repeat(2,max-content)}
+  .hero .wrap,.about,.svc-intro,.q-grid,.eq-wrap,.c-grid{grid-template-columns:1fr;gap:40px}
+  .hero .wrap{padding-top:64px;padding-bottom:64px}
+  .hero-ph{max-width:460px}
   .specs .wrap{grid-template-columns:repeat(2,1fr)}
-  .spec{border-bottom:1px solid rgba(255,255,255,.12)}
+  .spec{border-bottom:1px solid var(--line)}
+  .spec:nth-child(2){border-right:1px solid var(--line)}
+  .biz{grid-template-columns:repeat(2,1fr)}
+  .biz li:nth-child(n){padding-left:24px;border-left:0}
+  .biz li:nth-child(odd){padding-left:0}
+  .biz li:nth-child(even){border-left:1px solid var(--line)}
+  .values{grid-template-columns:repeat(2,1fr)}
+  .values div:nth-child(3){border-left:0;padding-left:0}
+  .values div:nth-child(-n+2){border-bottom:1px solid var(--line)}
   .menu-btn{display:inline-flex}
-  nav.main{position:fixed;top:68px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--line);gap:2px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:.2s}
-  .open nav.main{transform:none;opacity:1;pointer-events:auto}
-  nav.main a{padding:14px 10px;font-size:1rem;border-bottom:1px solid var(--line-2)}
-  nav.main a .nn{font-size:.72rem;min-width:22px}
-  nav.main a{align-items:center;gap:12px}
-  nav.main a .ni{width:20px;height:20px}
+  nav.main{position:fixed;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 20px;background:var(--paper);border-bottom:1px solid var(--line);opacity:0;transform:translateY(-8px);pointer-events:none;transition:.2s}
+  .open nav.main{opacity:1;transform:none;pointer-events:auto}
+  nav.main a{padding:14px 4px 14px 16px;font-size:1rem;gap:12px;border-bottom:1px solid var(--line-2)}
+  nav.main a .ni{width:19px;height:19px}
   nav.main a:not(.cta)::after{left:0;right:auto;top:12px;bottom:12px;width:2px;height:auto;transform:scaleY(0);transform-origin:top}
   nav.main a:not(.cta):hover::after,nav.main a.active::after{transform:scaleY(1)}
-  nav.main a:not(.cta){padding-left:16px}
   nav.main .sep{display:none}
-  nav.main a.cta{margin:12px 0 0;justify-content:center;border-bottom:0;padding:13px 16px}
+  nav.main a.cta{justify-content:center;margin-top:14px;padding:13px 16px;border-bottom:0}
+}
+@media (max-width:760px){
+  .flow{grid-template-columns:minmax(0,1fr);grid-template-rows:none;gap:30px}
+  .flow li:nth-child(n){grid-column:1;grid-row:auto}
+  .flow li:nth-child(n)::after{left:50%;top:calc(100% + 4px);transform:translateX(-50%);background:var(--faint)}
+  .flow li:last-child::after{display:none}
 }
 @media (max-width:600px){
-  .hero::before{opacity:.34;background-size:88vw 88vw,54vw 54vw,54vw 54vw;background-position:118% 36%,-35% -8%,128% 118%}
-  section.block:not(.dark):not(.contact)::before{opacity:.64;background-size:88vw 88vw,22px 22px;background-position:78% 48%,0 0}
-  section.block.alt:not(.dark):not(.contact)::before{opacity:.64;background-size:88vw 88vw,40px 40px,40px 40px;background-position:78% 48%,0 0,0 0}
-  .wrap{padding:0 16px}
-  section.block{padding:48px 0}
-  .sec-head{margin-bottom:30px}
-  .biz{gap:12px}
-  .biz li{padding:22px 20px;gap:14px;min-height:0;flex-direction:row;align-items:flex-start}
-  .biz .n{font-size:3rem;top:8px;right:12px}
-  .biz .ico{width:42px;height:42px;flex:none}
-  .tags{grid-template-columns:1fr 1fr}
-  .tags li{font-size:.84rem;padding:8px 10px;gap:8px}
-  .tags li::before{padding-right:8px}
-  .values div{padding:28px 20px 24px}
-  .values .vn{font-size:2.4rem;margin-bottom:14px}
-  .policy-en{padding:18px 20px;font-size:.8rem}
-  .svc,.biz,.flow{grid-template-columns:1fr}
-  .flow li{min-height:0}
-  .flow li::after{content:"↓";right:18px}
+  .wrap{padding:0 18px}
+  section.block{padding:72px 0}
+  section.block.tight{padding:56px 0}
+  .head{margin-bottom:32px;gap:10px}
+  .caps{grid-template-columns:1fr 1fr;gap:10px 18px}
+  .caps li{font-size:.92rem}
+  .spec{padding:22px 14px}
+  .spec .dimv{font-size:1.15rem}
+  .biz{grid-template-columns:1fr}
+  .biz li:nth-child(n){padding:22px 0;border-left:0}
+  .svc{grid-template-columns:1fr}
+  .card{padding:28px 22px 24px}
+  .card .ph{height:190px}
+  .values div{padding:22px 14px 20px}
+  .values div:nth-child(odd){padding-left:0}
+  .policy-en{margin-bottom:44px}
   .eq-photos{grid-template-columns:1fr 1fr}
-  .eq-photos img{height:140px}
-  .eq-photos img:nth-child(2){grid-column:span 2;order:-1}
-  .card{padding:24px}
+  .eq-photos .ph{height:130px}
+  .eq-photos .ph:nth-child(2){grid-column:span 2;order:-1}
+  .c-list li{grid-template-columns:1fr;gap:4px}
   .brand small{display:none}
-  table.eq th,table.eq td{padding:11px 12px}
+  .flow li{padding-left:56px}
+  .flow li::before{left:18px}
 }
-
-/* Flow chart: a clear serpentine route with raised process nodes */
-#process{background:linear-gradient(140deg,#e8f0f1 0%,#d5e2e4 52%,#e4ecee 100%);color:#17252b;border-bottom-color:#aab9bd}
-#process::before{display:block;inset:0;opacity:.34;background-image:radial-gradient(circle,rgba(36,117,185,.25) 1px,transparent 1.4px),radial-gradient(ellipse 55% 85% at 100% 0%,rgba(255,255,255,.88),transparent 72%);background-size:24px 24px,auto;-webkit-mask-image:radial-gradient(ellipse 88% 90% at 70% 36%,#000 0%,transparent 92%);mask-image:radial-gradient(ellipse 88% 90% at 70% 36%,#000 0%,transparent 92%)}
-#process::after{-webkit-text-stroke-color:rgba(23,37,43,.09)}
-#process .sec-no{border-color:#8b9ba0;color:#45565d}
-#process .sec-head h2{color:#17252b}
-#process .sec-head h2 span{color:#53656d}
-#process .flow{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(4,minmax(138px,auto));gap:34px 52px;border:0;counter-reset:s;padding:4px 0}
-#process .flow li{position:relative;overflow:visible;min-height:138px;padding:21px 22px;border:1px solid rgba(255,255,255,.6);border-radius:16px;background:linear-gradient(145deg,#39c3c5 0%,#258dbb 55%,#286ba7 100%);color:#fff;box-shadow:inset 0 2px 0 rgba(255,255,255,.56),inset 0 -2px 0 rgba(10,58,94,.24),0 4px 0 #1b527a,0 8px 14px rgba(22,60,79,.2);transition:transform .16s cubic-bezier(.3,.7,.4,1.15),box-shadow .16s ease,filter .16s ease}
-#process .flow li:hover{transform:translateY(-3px);filter:saturate(1.08);box-shadow:inset 0 2px 0 rgba(255,255,255,.65),inset 0 -2px 0 rgba(10,58,94,.24),0 7px 0 #1b527a,0 12px 18px rgba(22,60,79,.22)}
-#process .flow li:active{transform:translateY(2px);box-shadow:inset 0 3px 5px rgba(10,58,94,.25),0 1px 0 #1b527a}
-#process .flow li:nth-child(1){grid-column:1;grid-row:1}
-#process .flow li:nth-child(2){grid-column:1;grid-row:2}
-#process .flow li:nth-child(3){grid-column:1;grid-row:3}
-#process .flow li:nth-child(4){grid-column:1;grid-row:4}
-#process .flow li:nth-child(5){grid-column:2;grid-row:4}
-#process .flow li:nth-child(6){grid-column:2;grid-row:3}
-#process .flow li:nth-child(7){grid-column:2;grid-row:2}
-#process .flow li:nth-child(8){grid-column:2;grid-row:1}
-#process .flow li:nth-child(9){grid-column:3;grid-row:1}
-#process .flow li:nth-child(10){grid-column:3;grid-row:2}
-#process .flow li:nth-child(11){grid-column:3;grid-row:3}
-#process .flow li::before{display:inline-flex;align-items:center;justify-content:center;min-width:36px;height:25px;margin:0 0 13px;padding:0 8px;border:1px solid rgba(255,255,255,.42);border-radius:999px;background:rgba(14,58,87,.2);color:#fff;font-size:11px;letter-spacing:.08em}
-#process .flow b{color:#fff;font-size:1.12rem;line-height:1.45}
-#process .flow span{margin-top:7px;color:rgba(255,255,255,.9);font-size:.94rem;line-height:1.5}
-#process .flow li::after{position:absolute;z-index:3;display:grid;place-items:center;width:44px;height:36px;font-family:var(--mono);font-size:40px;font-weight:700;line-height:1;color:#f15b22;text-shadow:0 1px 0 rgba(255,255,255,.9),0 0 8px rgba(241,91,34,.28)}
-#process .flow li:nth-child(1)::after,#process .flow li:nth-child(2)::after,#process .flow li:nth-child(3)::after,#process .flow li:nth-child(9)::after,#process .flow li:nth-child(10)::after{content:"↓";left:50%;right:auto;top:calc(100% + 1px);transform:translateX(-50%)}
-#process .flow li:nth-child(4)::after,#process .flow li:nth-child(8)::after{content:"→";left:calc(100% + 2px);right:auto;top:50%;transform:translateY(-50%)}
-#process .flow li:nth-child(4)::after,#process .flow li:nth-child(8)::after{color:#a735c7;text-shadow:0 0 7px rgba(167,53,199,.22)}
-#process .flow li:nth-child(5)::after,#process .flow li:nth-child(6)::after,#process .flow li:nth-child(7)::after{content:"↑";left:50%;right:auto;top:-30px;transform:translateX(-50%)}
-#process .flow li.cust{background:linear-gradient(145deg,#41c8bc 0%,#238f9b 62%,#1e758d 100%);border-color:rgba(255,255,255,.72);box-shadow:inset 0 2px 0 rgba(255,255,255,.62),inset 0 -2px 0 rgba(10,58,94,.2),0 4px 0 #17636c,0 8px 14px rgba(22,60,79,.2)}
-#process .flow li.cust::before{color:#fff;border-color:rgba(255,255,255,.6);background:rgba(13,75,79,.22)}
-#process .flow li.final{background:linear-gradient(145deg,#ff9a59 0%,#f15b22 58%,#ce4418 100%);border-color:#ffe3d5;box-shadow:inset 0 2px 0 rgba(255,255,255,.62),inset 0 -2px 0 rgba(112,39,13,.2),0 4px 0 #a83d19,0 8px 14px rgba(95,44,22,.22)}
-#process .flow li.final::before{color:#fff;border-color:rgba(255,255,255,.66);background:rgba(112,39,13,.16)}
-#process .flow li:last-child::after{content:""}
-#process .legend{display:flex;gap:22px;align-items:center;margin-top:24px;color:#45565d;font-size:.9rem}
-#process .legend span{display:inline-flex;align-items:center;gap:6px}
-#process .legend i{width:13px;height:13px;margin:0;border:1px solid rgba(0,0,0,.15);border-radius:3px;box-shadow:inset 0 1px rgba(255,255,255,.45)}
-/* uniform SVG arrows: one shape, rotated per direction */
-#process .flow li::after{width:34px;height:34px;font-size:0;text-shadow:none;background-color:#f15b22;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3.5v15M5.5 12.5l6.5 6.5 6.5-6.5'/%3E%3C/svg%3E") center/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3.5v15M5.5 12.5l6.5 6.5 6.5-6.5'/%3E%3C/svg%3E") center/100% 100% no-repeat}
-#process .flow li:nth-child(1)::after,#process .flow li:nth-child(2)::after,#process .flow li:nth-child(3)::after,#process .flow li:nth-child(9)::after,#process .flow li:nth-child(10)::after{content:"";left:50%;top:calc(100% - 1px);transform:translateX(-50%)}
-#process .flow li:nth-child(4)::after,#process .flow li:nth-child(8)::after{content:"";left:calc(100% + 9px);top:50%;transform:translateY(-50%) rotate(-90deg);background-color:#a735c7}
-#process .flow li:nth-child(5)::after,#process .flow li:nth-child(6)::after,#process .flow li:nth-child(7)::after{content:"";left:50%;top:-35px;transform:translateX(-50%) rotate(180deg)}
-#process .flow li:last-child::after{display:none}
-@media (hover:none){#process .flow li:hover{transform:none;filter:none}}
-@media (max-width:760px){
-  #process .flow{grid-template-columns:minmax(0,1fr);grid-template-rows:none;gap:34px;padding:0}
-  #process .flow li:nth-child(n){grid-column:1;grid-row:auto;min-height:0;padding:20px 20px}
-  #process .flow li:nth-child(4)::after,#process .flow li:nth-child(8)::after,#process .flow li:nth-child(5)::after,#process .flow li:nth-child(6)::after,#process .flow li:nth-child(7)::after{content:"↓";left:50%;right:auto;top:calc(100% + 1px);transform:translateX(-50%)}
-  #process .flow li:nth-child(4)::after,#process .flow li:nth-child(8)::after,#process .flow li:nth-child(5)::after,#process .flow li:nth-child(6)::after,#process .flow li:nth-child(7)::after{content:"";left:50%;top:calc(100% - 1px);transform:translateX(-50%) rotate(0deg)}
-  #process .flow li{border-radius:12px}
-  #process .legend{margin-top:20px;flex-wrap:wrap}
+@media (max-width:380px){
+  .spec{padding:20px 8px}
+  .spec .dimv{font-size:1.02rem;gap:5px}
+  .spec .dimv::before,.spec .dimv::after{min-width:8px}
+  .spec .k{font-size:.8rem}
 }
-@media (max-width:370px){#process .flow li:nth-child(n){padding:17px 16px}#process .flow span{font-size:.88rem}}
-@media (prefers-reduced-motion:reduce){#process .flow li,#process .flow li:hover,#process .flow li:active{transition:none;transform:none;filter:none}}
-
-@media (prefers-reduced-motion:reduce){nav.main a .ni{transition:color .2s}nav.main a:hover .ni{transform:none}}
-@media (prefers-reduced-motion:reduce){nav.main a::after,nav.main a.cta,nav.main a.cta .arr{transition:none}nav.main a.cta:hover,nav.main a.cta:hover .arr{transform:none}}
-@media (prefers-reduced-motion:reduce){.biz li,.tags li,.biz li::before{transition:none}.biz li:hover,.tags li:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  nav.main a::after,nav.main a.cta .arr{transition:none}
+  nav.main a.cta:hover .arr{transform:none}
+}
 </style>
 </head>
 <body id="top">
@@ -405,7 +289,7 @@ footer.site .mono{font-size:.74rem}
 <header class="site">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="康晟精密有限公司 首頁">
-      <img src="assets/img/logo.png" alt="KC 康晟精密">
+      <img src="assets/img/logo.png" alt="KC 康晟精密" width="36" height="36">
       <span><b>康晟精密有限公司</b><small>Kang Cheng Precision Co., Ltd.</small></span>
     </a>
     <button class="menu-btn" aria-label="開啟/關閉選單" aria-expanded="false" aria-controls="nav"><span></span></button>
@@ -429,52 +313,41 @@ footer.site .mono{font-size:.74rem}
       <p class="eyebrow">Precision Mold Parts · Since 1990</p>
       <h1>康晟精密有限公司</h1>
       <p class="h1-en">KANG CHENG PRECISION CO., LTD.</p>
-      <p class="cap-label">Capabilities 專業項目</p>
-      <ul class="tags">
+      <ul class="caps" aria-label="專業項目">
         <li>專業CNC線切割</li><li>鎢鋼成型研磨</li><li>專業成型研磨</li><li>3D雕刻加工</li><li>備料銑床加工</li><li>成型放電加工</li>
       </ul>
       <div class="btns">
-        <a class="btn primary" href="#contact">聯絡我們 →</a>
-        <a class="btn ghost" href="#services">營業項目</a>
+        <a class="btn" href="#contact">聯絡我們 <span aria-hidden="true">→</span></a>
+        <a class="link-arrow" href="#services">營業項目</a>
       </div>
     </div>
-    <div class="hero-fig">
-      <span class="corner tl"></span><span class="corner br"></span>
-      <span class="dim a">+0.001 m/m</span>
-      <img src="assets/img/wirecut.jpg" alt="CNC線切割機" width="1111" height="1152">
-      <span class="dim b">RA 0.3</span>
-    </div>
+    <div class="ph hero-ph"><img src="assets/img/wirecut.jpg" alt="CNC線切割機" width="1111" height="1152"></div>
   </div>
 </section>
 
 <div class="specs">
   <div class="wrap">
-    <div class="spec"><div class="v">+0.001<small>m/m</small></div><div class="k">精密線切割 公差精密度</div></div>
-    <div class="spec"><div class="v">0.025<small>m/m</small></div><div class="k">線割 內R角處理</div></div>
-    <div class="spec"><div class="v">RA 0.3</div><div class="k">超鏡面處理 表面粗度</div></div>
-    <div class="spec"><div class="v">±0.002<small>m/m</small></div><div class="k">平面磨床 公差</div></div>
+    <div class="spec"><span class="dimv">+0.001<small>m/m</small></span><div class="k">精密線切割 公差精密度</div></div>
+    <div class="spec"><span class="dimv">0.025<small>m/m</small></span><div class="k">線割 內R角處理</div></div>
+    <div class="spec"><span class="dimv">RA 0.3</span><div class="k">超鏡面處理 表面粗度</div></div>
+    <div class="spec"><span class="dimv">±0.002<small>m/m</small></span><div class="k">平面磨床 公差</div></div>
   </div>
 </div>
 
-<!-- 01 公司簡介 -->
-<section class="block" id="about" data-no="01">
-  <div class="wrap marks">
-    <div class="sec-head reveal">
-      <div class="sec-no">01 / ABOUT</div>
-      <h2>公司簡介<span>Company profile</span></h2>
-    </div>
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="head reveal"><h2>公司簡介</h2><span class="h2-en">Company profile</span></div>
     <div class="about">
       <figure class="reveal">
-        <img src="assets/img/storefront.jpg" alt="康晟精密 廠房外觀" width="1287" height="971" loading="lazy">
-        <div class="since"><b>1990</b><small>EST. SHULIN, TAIWAN</small></div>
-        <figcaption><span>新北市樹林區</span><span class="mono">KANG CHENG PRECISION</span></figcaption>
+        <div class="ph"><img src="assets/img/storefront.jpg" alt="康晟精密 廠房外觀" width="1287" height="971" loading="lazy"></div>
+        <figcaption><span>新北市樹林區</span><b>1990</b></figcaption>
       </figure>
       <div class="reveal">
         <p class="lead">本公司主要從事生產精密五金模具，1990年成立於台灣樹林區。<br>10多年來，本經營團隊一直秉持著「凝聚生產力量,團結誕生希望」的精神,以提昇自身的素質、提高產品的品質為己任，並以提供顧客優良的產品為目標，用公正合理的價格，準確無誤的交貨期，務使顧客深切的感到：本經營團隊是可以完全信任的事業合作夥伴！</p>
         <p class="en">Kang Cheng Precision Co., Ltd. company, was established in 1990 shulin City, Taiwan, major in producing precision mold parts. Over 10 years, we believed in &#8220;Cohesion , makes strength and unite bears hope&#8217;s spirit.&#8221; To promote oneself quality, the target of providing customers with excellent products, reasonable price and accurate delivery, we make customers deeply believe that we are the completely trustful cooperator.</p>
         <div class="tenet" id="tenet">
           <h3>公司宗旨<span class="h-en">Tenet</span></h3>
-          <p style="margin-top:12px">我們的宗旨就是秉持誠摯的態度來接待每位客戶。用合理、公正的價格及優良的產品滿足於客戶。同時，在市場上我們勇於挑戰難度較高的產品，代表著經營隊對事業的追求與自身技術的信心！</p>
+          <p>我們的宗旨就是秉持誠摯的態度來接待每位客戶。用合理、公正的價格及優良的產品滿足於客戶。同時，在市場上我們勇於挑戰難度較高的產品，代表著經營隊對事業的追求與自身技術的信心！</p>
           <p>客戶滿意就是我們所追求最大目標；能獲得客戶的信賴是我們極高的榮幸。</p>
           <p class="en">Our tenet is to receive every customer with sincere attitude and meet customer requirements with reasonable and fair price and excellent products.</p>
           <p class="en" style="margin:0">Customer satisfaction is our pursuit. We need customers trust on us.</p>
@@ -484,31 +357,23 @@ footer.site .mono{font-size:.74rem}
   </div>
 </section>
 
-<!-- 02 營運範圍 -->
-<section class="block alt" id="business" data-no="02">
-  <div class="wrap marks">
-    <div class="sec-head reveal">
-      <div class="sec-no">02 / BUSINESS</div>
-      <h2>營運範圍<span>Business items</span></h2>
-    </div>
+<section class="block tight white" id="business">
+  <div class="wrap">
+    <div class="head reveal"><h2>營運範圍</h2><span class="h2-en">Business items</span></div>
     <ul class="biz reveal">
-      <li><span class="n mono" aria-hidden="true">01</span><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1.5"/><rect x="8" y="9.5" width="8" height="5" rx=".8"/><path d="M3 10h2M19 10h2M3 14h2M19 14h2"/></svg></span><div><b>鎢鋼模具製造</b><span>Tungsten(Carbide) stell molds manufacture</span></div></li>
-      <li><span class="n mono" aria-hidden="true">02</span><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.8 4.5v9L12 21l-7.8-4.5v-9z"/><circle cx="12" cy="12" r="3.2"/></svg></span><div><b>金屬零件製造</b><span>Metal parts manufacturing</span></div></li>
-      <li><span class="n mono" aria-hidden="true">03</span><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1.2"/><rect x="10" y="10" width="4" height="4"/><path d="M9.5 3v4M14.5 3v4M9.5 17v4M14.5 17v4M3 9.5h4M3 14.5h4M17 9.5h4M17 14.5h4"/></svg></span><div><b>半導體零組件加工</b><span>Semiconductor Parts processing</span></div></li>
-      <li><span class="n mono" aria-hidden="true">04</span><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18" stroke-dasharray="1.5 2"/><path d="M6 6h8l2 3h4M6 18h5l3-4h6"/><circle cx="6" cy="12" r="1.6"/></svg></span><div><b>精密線割加工</b><span>Precision wire out processing</span></div></li>
-      <li><span class="n mono" aria-hidden="true">05</span><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2.8v3M12 18.2v3M2.8 12h3M18.2 12h3M5.5 5.5l2.1 2.1M16.4 16.4l2.1 2.1M5.5 18.5l2.1-2.1M16.4 7.6l2.1-2.1"/><circle cx="12" cy="12" r="6.2"/></svg></span><div><b>特殊零件製造</b><span>Special parts manufacturing</span></div></li>
-      <li><span class="n mono" aria-hidden="true">06</span><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="3.6" ry="8"/><path d="M2.5 9.5l5.8 2.5-5.8 2.5M21.5 12h-5.6"/></svg></span><div><b>光學CNC加工</b><span>Optic CNC processing</span></div></li>
+      <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1.5"/><rect x="8" y="9.5" width="8" height="5" rx=".8"/><path d="M3 10h2M19 10h2M3 14h2M19 14h2"/></svg></span><div><b>鎢鋼模具製造</b><span>Tungsten(Carbide) stell molds manufacture</span></div></li>
+      <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.8 4.5v9L12 21l-7.8-4.5v-9z"/><circle cx="12" cy="12" r="3.2"/></svg></span><div><b>金屬零件製造</b><span>Metal parts manufacturing</span></div></li>
+      <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1.2"/><rect x="10" y="10" width="4" height="4"/><path d="M9.5 3v4M14.5 3v4M9.5 17v4M14.5 17v4M3 9.5h4M3 14.5h4M17 9.5h4M17 14.5h4"/></svg></span><div><b>半導體零組件加工</b><span>Semiconductor Parts processing</span></div></li>
+      <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18" stroke-dasharray="1.5 2"/><path d="M6 6h8l2 3h4M6 18h5l3-4h6"/><circle cx="6" cy="12" r="1.6"/></svg></span><div><b>精密線割加工</b><span>Precision wire out processing</span></div></li>
+      <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2.8v3M12 18.2v3M2.8 12h3M18.2 12h3M5.5 5.5l2.1 2.1M16.4 16.4l2.1 2.1M5.5 18.5l2.1-2.1M16.4 7.6l2.1-2.1"/><circle cx="12" cy="12" r="6.2"/></svg></span><div><b>特殊零件製造</b><span>Special parts manufacturing</span></div></li>
+      <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="3.6" ry="8"/><path d="M2.5 9.5l5.8 2.5-5.8 2.5M21.5 12h-5.6"/></svg></span><div><b>光學CNC加工</b><span>Optic CNC processing</span></div></li>
     </ul>
   </div>
 </section>
 
-<!-- 03 服務內容 -->
-<section class="block" id="services" data-no="03">
-  <div class="wrap marks">
-    <div class="sec-head reveal">
-      <div class="sec-no">03 / SERVICES</div>
-      <h2>服務內容<span>Scope of Our Services</span></h2>
-    </div>
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="head reveal"><h2>服務內容</h2><span class="h2-en">Scope of Our Services</span></div>
     <div class="svc-intro reveal">
       <div>
         <p class="lead">我們致力耕耘精密模具，有幸在市場上取得了客戶的信賴，由於擁有廣大客戶支持，得以讓我們不斷在硬體與軟體上追求創新。</p>
@@ -520,50 +385,46 @@ footer.site .mono{font-size:.74rem}
         <p>We are the precision mold maker. We are here to ease the inconveniences of mold assembly and cus down the faults making sure that our customers bring up the production efficiency and shorten the production time.</p>
       </div>
     </div>
-    <div class="svc">
-      <article class="card reveal" id="wirecut">
-        <div class="tag">SERVICE · 01</div>
+    <div class="svc reveal">
+      <article class="card" id="wirecut">
         <h3>精密線切割加工<span class="h-en">Precision Wire Cut</span></h3>
-        <div class="kpi"><span>+0.001 m/m</span><span>R 0.025 m/m</span><span>RA 0.3</span></div>
+        <div class="kpi"><span class="dimv">+0.001<small>m/m</small></span><span class="dimv">R 0.025<small>m/m</small></span><span class="dimv">RA 0.3</span></div>
         <p>本廠特別採用最先進的浸水式線割機,公差精密度達+0.00 1m/m,內R角處理可達0.025m/m,超鏡面處理表面粗度可減低至RA 0.3。</p>
         <p class="en">We particularly adopt the most advanced oiled wire cut machine with up to + 0.001 m/m in precision, inner R angle process reaches 0.025 m/m, super mirror processing decreases surface roughness to as low as RA 0.3.</p>
-        <img src="assets/img/parts-a.jpg" alt="精密線切割加工零件" loading="lazy">
+        <div class="gap"></div>
+        <div class="ph"><img src="assets/img/parts-a.jpg" alt="精密線切割加工零件" width="1180" height="953" loading="lazy"></div>
       </article>
-      <article class="card reveal" id="edm">
-        <div class="tag">SERVICE · 02</div>
+      <article class="card" id="edm">
         <h3>CNC 放電加工<span class="h-en">CNC Electrical Discharge</span></h3>
-        <div class="kpi"><span>EDM</span></div>
+        <div class="kpi"><span class="word">EDM</span></div>
         <p>為了滿足公司的發展與客戶的需要,進一步提高產品的品質與生產效率,本公司特別 增購了高效率放電加工機。</p>
         <p class="en">In order to satisfying customers needs, improving quality and production efficiency, we specially purchased high efficient Electrical Discharge Machine (EDM).</p>
-        <img src="assets/img/parts-b.jpg" alt="放電加工零件" loading="lazy">
+        <div class="gap"></div>
+        <div class="ph"><img src="assets/img/parts-b.jpg" alt="放電加工零件" width="1177" height="833" loading="lazy"></div>
       </article>
-      <article class="card reveal" id="grinder">
-        <div class="tag">SERVICE · 03</div>
+      <article class="card" id="grinder">
         <h3>高精度平面磨床<span class="h-en">High Precision Surface Grinder</span></h3>
-        <div class="kpi"><span>±0.002 m/m</span></div>
+        <div class="kpi"><span class="dimv">±0.002<small>m/m</small></span></div>
         <p>本廠擁有平面磨床,其效率極佳、精度高,公差可達±0.002m/m。我們對技術的用 心態度,在同業中取得了舉足輕重的地位;因此本公司的產品相當受市場青睞!</p>
         <p class="en">We have surface grinder with high efficiency and high precision capabilities, the tolerance can be up to +0.002 m/m, We take pride in being a leading position in the industry and being able to provide industry leading products to the market.</p>
-        <img src="assets/img/parts-d.jpg" alt="平面研磨零件" loading="lazy">
+        <div class="gap"></div>
+        <div class="ph"><img src="assets/img/parts-d.jpg" alt="平面研磨零件" width="613" height="513" loading="lazy"></div>
       </article>
-      <article class="card reveal" id="design">
-        <div class="tag">SERVICE · 04</div>
+      <article class="card" id="design">
         <h3>設計｜開模｜試模<span class="h-en">Design|Mold open|Mold test run</span></h3>
-        <div class="kpi"><span>DESIGN → DELIVERY</span></div>
+        <div class="kpi"><span class="word">Design → Delivery</span></div>
         <p>設計工程人員，從開發、設計、組模、試模到成品完成交客戶。</p>
         <p class="en">Design engineers and tis operations ranges from develop, design, mold assembly, mold test run to finished product delivery to customers.</p>
-        <img src="assets/img/parts-c.jpg" alt="模具零件" loading="lazy">
+        <div class="gap"></div>
+        <div class="ph"><img src="assets/img/parts-c.jpg" alt="模具零件" width="668" height="526" loading="lazy"></div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- 04 流程 -->
-<section class="block dark" id="process" data-no="04">
-  <div class="wrap marks">
-    <div class="sec-head reveal">
-      <div class="sec-no">04 / PROCESS</div>
-      <h2>流程圖<span>Flow Chart</span></h2>
-    </div>
+<section class="block white" id="process">
+  <div class="wrap">
+    <div class="head reveal"><h2>流程圖</h2><span class="h2-en">Flow Chart</span></div>
     <ol class="flow reveal">
       <li><b>繪製成品圖</b><span>Draw finished product diagram</span></li>
       <li><b>繪製展開圖</b><span>Draw exploded view diagram</span></li>
@@ -580,46 +441,36 @@ footer.site .mono{font-size:.74rem}
   </div>
 </section>
 
-<!-- 05 品質 -->
-<section class="block" id="quality" data-no="05">
-  <div class="wrap marks">
-    <div class="sec-head reveal">
-      <div class="sec-no">05 / QUALITY</div>
-      <h2>品質政策<span>Quality policy</span></h2>
-    </div>
-    <div class="policy-panel reveal" id="policy">
+<section class="block" id="quality">
+  <div class="wrap">
+    <div class="head reveal"><h2>品質政策</h2><span class="h2-en">Quality policy</span></div>
+    <div class="reveal" id="policy">
       <div class="values">
-        <div><span class="vn" aria-hidden="true">01</span><b>顧客至上</b><em>Customer uppermost</em></div>
-        <div><span class="vn" aria-hidden="true">02</span><b>品質第一</b><em>Quality first</em></div>
-        <div><span class="vn" aria-hidden="true">03</span><b>追求卓越</b><em>Perfect pursuit</em></div>
-        <div><span class="vn" aria-hidden="true">04</span><b>永續經營</b><em>Continual improving</em></div>
+        <div><b>顧客至上</b><em>Customer uppermost</em></div>
+        <div><b>品質第一</b><em>Quality first</em></div>
+        <div><b>追求卓越</b><em>Perfect pursuit</em></div>
+        <div><b>永續經營</b><em>Continual improving</em></div>
       </div>
       <p class="policy-en">Customer uppermost, quality, first, perfect pursuit and continual improving.</p>
     </div>
     <div class="q-grid reveal" id="qc">
-      <div>
-        <h3>品質管理<span class="h-en">Quality Control</span></h3>
-      </div>
+      <div><h3>品質管理<span class="h-en">Quality Control</span></h3></div>
       <div>
         <p class="lead">我們以精益求精的態度,嚴格要求對產品品質的管制,不斷追蹤、檢討與改善,滿足 不同客戶之需求。 因為我們相信:唯有優質的產品,才能真正獲得客戶的青睞,這一直是我們努力不懈 的目標準!</p>
-        <p class="en">We strive for perfection. We strictly demand the quality and continuously track, review and improve to meeting customers needs. We firmly believe that only best quality can earn customer&#8217;s trust.</p>
+        <p class="en" style="margin:0">We strive for perfection. We strictly demand the quality and continuously track, review and improve to meeting customers needs. We firmly believe that only best quality can earn customer&#8217;s trust.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 06 機器設備 -->
-<section class="block alt" id="equipment" data-no="06">
-  <div class="wrap marks">
-    <div class="sec-head reveal">
-      <div class="sec-no">06 / EQUIPMENT</div>
-      <h2>機器設備<span>Equipment</span></h2>
-    </div>
+<section class="block tight white" id="equipment">
+  <div class="wrap">
+    <div class="head reveal"><h2>機器設備</h2><span class="h2-en">Equipment</span></div>
     <div class="eq-photos reveal">
-      <img src="assets/img/equip-1.jpg" alt="NIKON 投影機量測儀" loading="lazy">
-      <img src="assets/img/equip-2.jpg" alt="廠內加工設備" loading="lazy">
-      <img src="assets/img/equip-3.jpg" alt="表面工具顯微鏡" loading="lazy">
-      <img src="assets/img/equip-4.jpg" alt="高度計" loading="lazy">
+      <div class="ph"><img src="assets/img/equip-1.jpg" alt="NIKON 投影機量測儀" loading="lazy"></div>
+      <div class="ph"><img src="assets/img/equip-2.jpg" alt="廠內加工設備" loading="lazy"></div>
+      <div class="ph"><img src="assets/img/equip-3.jpg" alt="表面工具顯微鏡" loading="lazy"></div>
+      <div class="ph"><img src="assets/img/equip-4.jpg" alt="高度計" loading="lazy"></div>
     </div>
     <div class="eq-wrap">
       <table class="eq reveal">
@@ -651,13 +502,9 @@ footer.site .mono{font-size:.74rem}
   </div>
 </section>
 
-<!-- 07 聯絡 -->
-<section class="block contact" id="contact" data-no="07">
-  <div class="wrap marks">
-    <div class="sec-head reveal">
-      <div class="sec-no">07 / CONTACT</div>
-      <h2>聯絡方式<span>Contact</span></h2>
-    </div>
+<section class="block contact" id="contact">
+  <div class="wrap">
+    <div class="head reveal"><h2>聯絡方式</h2><span class="h2-en">Contact</span></div>
     <div class="c-grid">
       <ul class="c-list reveal">
         <li><span class="k">TEL 電話</span><span class="v big"><a href="tel:+886226883747">02-2688-3747</a></span></li>
@@ -683,16 +530,16 @@ footer.site .mono{font-size:.74rem}
 <script>
 (function(){
   var h=document.querySelector('header.site'),b=h.querySelector('.menu-btn');
+  function closeMenu(){h.classList.remove('open');b.setAttribute('aria-expanded',false)}
   document.querySelectorAll('a[href="#top"]').forEach(function(a){a.addEventListener('click',function(e){
-    e.preventDefault();h.classList.remove('open');b.setAttribute('aria-expanded',false);
+    e.preventDefault();closeMenu();
     window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
     if(location.hash)history.replaceState(null,'',location.pathname+location.search);
   })});
   (function(){
     var links=[].slice.call(h.querySelectorAll('nav.main a[href^="#"]')),bar=h.querySelector('.read-bar');
     var map={business:'about'};
-    var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
-    document.querySelectorAll('section[id]').forEach(function(s){if(secs.indexOf(s)<0)secs.push(s)});
+    var secs=[].slice.call(document.querySelectorAll('section[id]'));
     function upd(){
       var y=window.scrollY,H=document.documentElement.scrollHeight-innerHeight;
       if(bar)bar.style.setProperty('--p',H>0?Math.min(1,y/H):0);
@@ -708,7 +555,8 @@ footer.site .mono{font-size:.74rem}
     upd();
   })();
   b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o)});
-  h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded',false)})});
+  h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',closeMenu)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&h.classList.contains('open')){closeMenu();b.focus()}});
   var els=document.querySelectorAll('.reveal');
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
